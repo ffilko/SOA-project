@@ -1,0 +1,9 @@
+<h2>My Profile</h2>
+
+<div *ngIf="profile">
+  <img [src]="profile.profileimage" width="120" />
+
+  <p><b>Name:</b> {{ profile.name }} {{ profile.surname }}</p>
+  <p><b>Description:</b> {{ profile.description }}</p>
+  <p><b>Motto:</b> "{{ profile.motto }}"</p>
+</div>
