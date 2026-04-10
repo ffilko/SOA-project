@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"stakeholders.xws.com/handler"
@@ -31,7 +32,17 @@ func startServer(userHandler *handler.UserHandler, profileHandler *handler.Profi
 	handler.RegisterProfileRouter(router, profileHandler)
 
 	println("Server starting...")
-	log.Fatal(http.ListenAndServe(":8080", router))
+
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:4200"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+	})
+
+	handler := c.Handler(router)
+
+	log.Fatal(http.ListenAndServe(":8080", handler))
 }
 
 func main() {

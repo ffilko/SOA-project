@@ -1,0 +1,12 @@
+<nav>
+
+  <div *ngIf="!(authService.isLoggedIn$ | async)">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </div>
+
+  <div *ngIf="authService.isLoggedIn$ | async">
+    <button (click)="logout()">Logout</button>
+  </div>
+
+</nav>
