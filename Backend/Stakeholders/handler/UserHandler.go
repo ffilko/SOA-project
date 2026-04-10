@@ -3,9 +3,12 @@ package handler
 import (
 	"encoding/json"
 	"net/http"
+	"strings"
 
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
+	"stakeholders.xws.com/dto"
 	"stakeholders.xws.com/model"
 	"stakeholders.xws.com/service"
 )
@@ -19,6 +22,7 @@ func RegisterUserRoutes(router *mux.Router, handler *UserHandler) {
 	router.HandleFunc("/user/{id}", handler.Get).Methods("GET")
 	router.HandleFunc("/login", handler.Login).Methods("POST")
 	router.HandleFunc("/logout", handler.Logout).Methods("POST")
+	router.HandleFunc("/users", handler.GetAll).Methods("GET")
 }
 
 // Registracija korisnika
@@ -112,4 +116,47 @@ func (handler *UserHandler) Get(writer http.ResponseWriter, req *http.Request) {
 
 	writer.WriteHeader(http.StatusOK)
 	json.NewEncoder(writer).Encode(user)
+}
+
+func (handler *UserHandler) GetAll(writer http.ResponseWriter, req *http.Request) {
+	authHeader := req.Header.Get("Authorization")
+	tokenStr := strings.TrimPrefix(authHeader, "Bearer ")
+
+	token, err := jwt.Parse(tokenStr, func(t *jwt.Token) (interface{}, error) {
+		return service.GetSecretKey(), nil
+	})
+
+	if err != nil || !token.Valid {
+		writer.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+
+	claims, _ := token.Claims.(jwt.MapClaims)
+	if claims["role"] != "Administrator" {
+		writer.WriteHeader(http.StatusForbidden)
+		return
+	}
+
+	allUsers, err := handler.UserService.GetAllUsers()
+	if err != nil {
+		writer.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	var users []dto.UserResponse
+	for i := 0; i < len(allUsers); i++ {
+		currentUser := allUsers[i]
+		user := dto.UserResponse{
+			ID:       currentUser.ID,
+			Username: currentUser.Username,
+			Email:    currentUser.Email,
+			Role:     currentUser.Role,
+		}
+
+		users = append(users, user)
+	}
+
+	writer.Header().Set("Content-Type", "application/json")
+	writer.WriteHeader(http.StatusOK)
+	json.NewEncoder(writer).Encode(users)
 }

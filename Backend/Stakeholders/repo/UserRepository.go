@@ -36,3 +36,12 @@ func (repo *UserRepository) CreateUser(user *model.User) error {
 	println("Rows affected : ", dbResult.RowsAffected)
 	return nil
 }
+
+func (repo *UserRepository) GetAllUsers() ([]model.User, error) {
+	var users []model.User
+	dbResult := repo.DatabaseConnection.Find(&users)
+	if dbResult.Error != nil {
+		return nil, dbResult.Error
+	}
+	return users, nil
+}

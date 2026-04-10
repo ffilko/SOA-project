@@ -49,3 +49,7 @@ func (service *UserService) Create(user *model.User) error {
 	}
 	return service.ProfileRepo.CreateProfile(profile)
 }
+
+func (service *UserService) GetAllUsers() ([]model.User, error) {
+	return service.UserRepo.GetAllUsers()
+}
