@@ -27,6 +27,10 @@ func (service *UserService) Login(username string, password string) (*model.User
 		return nil, fmt.Errorf("Invalid credentials")
 	}
 
+	if user.IsBlocked {
+		return nil, fmt.Errorf("Your account has been blocked.")
+	}
+
 	if user.Password != password {
 		return nil, fmt.Errorf("Invalid password")
 	}
@@ -52,4 +56,20 @@ func (service *UserService) Create(user *model.User) error {
 
 func (service *UserService) GetAllUsers() ([]model.User, error) {
 	return service.UserRepo.GetAllUsers()
+}
+
+func (service *UserService) BlockUser(id uuid.UUID) error {
+	user, err := service.UserRepo.FindById(id)
+	if err != nil {
+		return err
+	}
+
+	user.IsBlocked = true
+
+	err = service.UserRepo.UpdateUser(&user)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -45,3 +45,11 @@ func (repo *UserRepository) GetAllUsers() ([]model.User, error) {
 	}
 	return users, nil
 }
+
+func (repo *UserRepository) UpdateUser(user *model.User) error {
+	dbResult := repo.DatabaseConnection.Save(user)
+	if dbResult.Error != nil {
+		return dbResult.Error
+	}
+	return nil
+}

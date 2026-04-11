@@ -23,6 +23,7 @@ func RegisterUserRoutes(router *mux.Router, handler *UserHandler) {
 	router.HandleFunc("/login", handler.Login).Methods("POST")
 	router.HandleFunc("/logout", handler.Logout).Methods("POST")
 	router.HandleFunc("/users", handler.GetAll).Methods("GET")
+	router.HandleFunc("/users/{id}/block", handler.BlockUser).Methods("PUT")
 }
 
 // Registracija korisnika
@@ -147,10 +148,11 @@ func (handler *UserHandler) GetAll(writer http.ResponseWriter, req *http.Request
 	for i := 0; i < len(allUsers); i++ {
 		currentUser := allUsers[i]
 		user := dto.UserResponse{
-			ID:       currentUser.ID,
-			Username: currentUser.Username,
-			Email:    currentUser.Email,
-			Role:     currentUser.Role,
+			ID:        currentUser.ID,
+			Username:  currentUser.Username,
+			Email:     currentUser.Email,
+			Role:      currentUser.Role,
+			IsBlocked: currentUser.IsBlocked,
 		}
 
 		users = append(users, user)
@@ -159,4 +161,39 @@ func (handler *UserHandler) GetAll(writer http.ResponseWriter, req *http.Request
 	writer.Header().Set("Content-Type", "application/json")
 	writer.WriteHeader(http.StatusOK)
 	json.NewEncoder(writer).Encode(users)
+}
+
+func (handler *UserHandler) BlockUser(writer http.ResponseWriter, req *http.Request) {
+	authHeader := req.Header.Get("Authorization")
+	tokenStr := strings.TrimPrefix(authHeader, "Bearer ")
+
+	token, err := jwt.Parse(tokenStr, func(t *jwt.Token) (interface{}, error) {
+		return service.GetSecretKey(), nil
+	})
+
+	if err != nil || !token.Valid {
+		writer.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+
+	claims, _ := token.Claims.(jwt.MapClaims)
+	if claims["role"] != "Administrator" {
+		writer.WriteHeader(http.StatusForbidden)
+		return
+	}
+
+	idStr := mux.Vars(req)["id"]
+	id, err := uuid.Parse(idStr)
+	if err != nil {
+		writer.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	err = handler.UserService.BlockUser(id)
+	if err != nil {
+		writer.WriteHeader(http.StatusNotFound)
+		return
+	}
+
+	writer.WriteHeader(http.StatusOK)
 }

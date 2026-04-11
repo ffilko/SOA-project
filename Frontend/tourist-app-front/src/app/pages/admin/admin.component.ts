@@ -13,6 +13,10 @@ export class AdminComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.loadUsers();
+  }
+
+  loadUsers(){
     this.authService.getAllUsers().subscribe({
       next: (data: any) => {
         this.users = data;
@@ -21,5 +25,19 @@ export class AdminComponent implements OnInit {
         this.errorMessage = 'Error';
       }
     });
+  }
+
+  onBlockUser(userId: string) {
+    if (confirm('Are you sure you want to block this user?')) {
+      this.authService.blockUser(userId).subscribe({
+        next: () => {
+          alert('User blocked');
+          this.loadUsers();
+        },
+        error: (err) => {
+          alert('Error');
+        }
+      });
+    }
   }
 }

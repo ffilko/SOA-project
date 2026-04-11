@@ -6,8 +6,9 @@ import (
 )
 
 type UserResponse struct {
-	ID       uuid.UUID      `json:"id"`
-	Username string         `json:"username"`
-	Email    string         `json:"email"`
-	Role     model.UserRole `json:"role"`
+	ID        uuid.UUID      `json:"id"`
+	Username  string         `json:"username"`
+	Email     string         `json:"email"`
+	Role      model.UserRole `json:"role"`
+	IsBlocked bool           `json:"isBlocked"`
 }

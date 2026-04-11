@@ -6,6 +6,7 @@
       <th>Username</th>
       <th>Email</th>
       <th>Role</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,16 @@
         <span *ngIf="user.role === 0">Turista</span>
         <span *ngIf="user.role === 1">Vodič</span>
         <span *ngIf="user.role === 2">Administrator</span>
+      </td>
+      <td>
+        <button 
+          *ngIf="!user.isBlocked && user.role !== 2" 
+          (click)="onBlockUser(user.id)">
+          Block
+        </button>
+        <span *ngIf="user.isBlocked">
+          Blocked
+        </span>
       </td>
     </tr>
   </tbody>

@@ -54,4 +54,11 @@ export class AuthService {
 
     return this.http.get(`${this.baseUrl}users`, { headers });
   }
+
+  blockUser(userId: string) {
+    const token = this.getToken();
+    const headers = new HttpHeaders({'Authorization': 'Bearer ' + token});
+    
+    return this.http.put(`${this.baseUrl}users/${userId}/block`, {}, { headers });
+  }
 }
