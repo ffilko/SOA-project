@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
@@ -16,12 +17,26 @@ import (
 )
 
 func initDB() *gorm.DB {
-	connection_url := "host=localhost user=postgres password=root dbname=tourist_app port=5432 sslmode=disable"
-	database, err := gorm.Open(postgres.Open(connection_url), &gorm.Config{})
+	dsn := "host=database user=postgres password=root dbname=tourist_app port=5432 sslmode=disable"
+
+	var database *gorm.DB
+	var err error
+
+	for i := 0; i < 10; i++ {
+		database, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+		if err == nil {
+			break
+		}
+
+		fmt.Println("Waiting for database...")
+		time.Sleep(2 * time.Second)
+	}
+
 	if err != nil {
 		fmt.Println(err)
 		return nil
 	}
+
 	database.AutoMigrate(&model.User{}, &model.Profile{})
 	return database
 }
