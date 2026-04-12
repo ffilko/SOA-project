@@ -66,10 +66,5 @@ func (service *UserService) BlockUser(id uuid.UUID) error {
 
 	user.IsBlocked = true
 
-	err = service.UserRepo.UpdateUser(&user)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return service.UserRepo.UpdateUser(&user)
 }
