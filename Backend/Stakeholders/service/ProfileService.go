@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/google/uuid"
+	"stakeholders.xws.com/dto"
 	"stakeholders.xws.com/model"
 	"stakeholders.xws.com/repo"
 )
@@ -20,17 +21,17 @@ func (service *ProfileService) FindUser(id uuid.UUID) (*model.Profile, error) {
 	return &profile, nil
 }
 
-func (service *ProfileService) Update(id uuid.UUID, updated *model.Profile) (*model.Profile, error) {
+func (service *ProfileService) Update(id uuid.UUID, updatedDTO dto.UpdateProfileDTO) (*model.Profile, error) {
 	profile, err := service.ProfileRepo.FindByUserID(id)
 	if err != nil {
 		return nil, fmt.Errorf("Profile with id %s not found", id)
 	}
 
-	profile.Name = updated.Name
-	profile.Surname = updated.Surname
-	profile.ProfileImage = updated.ProfileImage
-	profile.Description = updated.Description
-	profile.Motto = updated.Motto
+	profile.Name = updatedDTO.Name
+	profile.Surname = updatedDTO.Surname
+	profile.ProfileImage = updatedDTO.ProfileImage
+	profile.Description = updatedDTO.Description
+	profile.Motto = updatedDTO.Motto
 
 	err = service.ProfileRepo.Update(&profile)
 	if err != nil {
