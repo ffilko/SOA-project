@@ -1,0 +1,33 @@
+<h2>Users</h2>
+
+<table border="1" *ngIf="users.length > 0" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <span *ngIf="user.role === 0">Turista</span>
+        <span *ngIf="user.role === 1">Vodič</span>
+        <span *ngIf="user.role === 2">Administrator</span>
+      </td>
+      <td>
+        <button 
+          *ngIf="!user.isBlocked && user.role !== 2" 
+          (click)="onBlockUser(user.id)">
+          Block
+        </button>
+        <span *ngIf="user.isBlocked">
+          Blocked
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

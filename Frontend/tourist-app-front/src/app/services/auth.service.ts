@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -45,5 +46,19 @@ export class AuthService {
     console.log(payload);
 
     return payload.user_id;
+  }
+
+  getAllUsers() {
+    const token = this.getToken();
+    const headers = new HttpHeaders({'Authorization': 'Bearer ' + token});
+
+    return this.http.get(`${this.baseUrl}users`, { headers });
+  }
+
+  blockUser(userId: string) {
+    const token = this.getToken();
+    const headers = new HttpHeaders({'Authorization': 'Bearer ' + token});
+    
+    return this.http.put(`${this.baseUrl}users/${userId}/block`, {}, { headers });
   }
 }

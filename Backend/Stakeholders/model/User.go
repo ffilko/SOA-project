@@ -6,11 +6,12 @@ import (
 )
 
 type User struct {
-	ID       uuid.UUID `gorm:"type:uuid;primary_key;" json:"id"`
-	Username string    `gorm:"not null;unique" json:"username"`
-	Password string    `gorm:"not null" json:"password"`
-	Email    string    `gorm:"not null;unique" json:"email"`
-	Role     UserRole  `gorm:"not null" json:"role"`
+	ID        uuid.UUID `gorm:"type:uuid;primary_key;" json:"id"`
+	Username  string    `gorm:"not null;unique" json:"username"`
+	Password  string    `gorm:"not null" json:"password"`
+	Email     string    `gorm:"not null;unique" json:"email"`
+	Role      UserRole  `gorm:"not null" json:"role"`
+	IsBlocked bool      `gorm:"default:false" json:"isBlocked"`
 }
 
 // Generisanje ID
