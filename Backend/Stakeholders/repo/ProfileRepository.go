@@ -20,3 +20,8 @@ func (repo *ProfileRepository) FindByUserID(userID uuid.UUID) (model.Profile, er
 	dbResult := repo.DatabaseConnection.First(&profile, "user_id = ?", userID)
 	return profile, dbResult.Error
 }
+
+func (repo *ProfileRepository) Update(profile *model.Profile) error {
+	dbResult := repo.DatabaseConnection.Save(profile)
+	return dbResult.Error
+}
