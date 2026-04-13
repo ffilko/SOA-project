@@ -28,6 +28,36 @@ services:
     volumes:
       - database-data:/var/lib/postgresql/data
 
+  blogs-service:
+    build:
+      context: ./Backend/Blogs
+      dockerfile: Blogs.API/Dockerfile
+    container_name: blogs
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      - blogs-database
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=blogs-database;Database=blogs_db;Username=postgres;Password=root
+    networks:
+      - app-network
+
+  blogs-database:
+    image: postgres:16
+    container_name: blogs-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: blogs_db
+    ports:
+      - "5433:5432"
+    networks:
+      - app-network
+    volumes:
+      - blogs-database-data:/var/lib/postgresql/data
+
   frontend:
     build: ./Frontend/tourist-app-front
     container_name: frontend
@@ -53,6 +83,8 @@ services:
 volumes:
   database-data:
     name: server-database
+  blogs-database-data:
+    name: blogs-database
   pgadmin-data:
     name: pgadmin-data
 

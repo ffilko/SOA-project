@@ -1,0 +1,12 @@
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\bin\Debug\net8.0\Blogs.Core.deps.json
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\bin\Debug\net8.0\Blogs.Core.dll
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\bin\Debug\net8.0\Blogs.Core.pdb
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.AssemblyInfoInputs.cache
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.AssemblyInfo.cs
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.csproj.CoreCompileInputs.cache
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.sourcelink.json
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.dll
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\refint\Blogs.Core.dll
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\Blogs.Core.pdb
+C:\Users\jovan\SOA\SOA-project\Backend\Blogs\Blogs.Core\obj\Debug\net8.0\ref\Blogs.Core.dll
