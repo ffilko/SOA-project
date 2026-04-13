@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|c:\\users\\jovan\\soa\\soa-project\\backend\\blogs\\blogs.api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|solutionrelative:blogs.api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|c:\\users\\jovan\\soa\\soa-project\\backend\\blogs\\blogs.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|solutionrelative:blogs.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|c:\\users\\jovan\\soa\\soa-project\\backend\\blogs\\blogs.api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|solutionrelative:blogs.api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|c:\\users\\jovan\\soa\\soa-project\\backend\\blogs\\blogs.core\\services\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,8 +86,7 @@
               "RelativeToolTip": "Blogs.Core\\Interfaces\\IBlogService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:55:12.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:55:12.201Z"
             },
             {
               "$type": "Document",
@@ -99,8 +98,7 @@
               "RelativeToolTip": "Blogs.Core\\DTO\\BlogResponseDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:51:23.556Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:51:23.556Z"
             },
             {
               "$type": "Document",
@@ -112,25 +110,24 @@
               "RelativeToolTip": "Blogs.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-13T18:23:47.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:23:47.217Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.API\\Program.cs",
               "RelativeDocumentMoniker": "Blogs.API\\Program.cs",
               "ToolTip": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.API\\Program.cs",
               "RelativeToolTip": "Blogs.API\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAmwCAAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAmwCcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T18:23:04.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BlogController.cs",
               "DocumentMoniker": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.API\\Controllers\\BlogController.cs",
               "RelativeDocumentMoniker": "Blogs.API\\Controllers\\BlogController.cs",
@@ -151,8 +148,7 @@
               "RelativeToolTip": "Blogs.Infrastructure\\Database\\BlogDbContext.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA6wCIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:16:39.593Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:16:39.593Z"
             },
             {
               "$type": "Document",
@@ -164,21 +160,19 @@
               "RelativeToolTip": "Blogs.Core\\Services\\BlogService.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAA6wB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:10:15.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:10:15.11Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Blogs.API",
+              "Title": "Blogs.API.csproj",
               "DocumentMoniker": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.API\\Blogs.API.csproj",
               "RelativeDocumentMoniker": "Blogs.API\\Blogs.API.csproj",
               "ToolTip": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.API\\Blogs.API.csproj",
               "RelativeToolTip": "Blogs.API\\Blogs.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-13T18:30:42.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:30:42.793Z"
             },
             {
               "$type": "Document",
@@ -190,34 +184,31 @@
               "RelativeToolTip": "Blogs.Core\\DTO\\CreateBlogDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:45:00.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:45:00.271Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Blogs.Infrastructure",
+              "Title": "Blogs.Infrastructure.csproj",
               "DocumentMoniker": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Blogs.Infrastructure.csproj",
               "RelativeDocumentMoniker": "Blogs.Infrastructure\\Blogs.Infrastructure.csproj",
               "ToolTip": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Blogs.Infrastructure.csproj",
               "RelativeToolTip": "Blogs.Infrastructure\\Blogs.Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-13T18:03:03.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:03:03.574Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Blogs.Core",
+              "Title": "Blogs.Core.csproj",
               "DocumentMoniker": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Blogs.Core.csproj",
               "RelativeDocumentMoniker": "Blogs.Core\\Blogs.Core.csproj",
               "ToolTip": "C:\\Users\\jovan\\SOA\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Blogs.Core.csproj",
               "RelativeToolTip": "Blogs.Core\\Blogs.Core.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-13T18:05:15.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:05:15.454Z"
             },
             {
               "$type": "Document",
@@ -229,8 +220,7 @@
               "RelativeToolTip": "Blogs.Infrastructure\\Migrations\\20260413183353_InitialCreate.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:33:53.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:33:53.874Z"
             },
             {
               "$type": "Document",
@@ -242,8 +232,7 @@
               "RelativeToolTip": "Blogs.Infrastructure\\Repositories\\BlogRepository.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAmwCMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:17:46.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:17:46.007Z"
             },
             {
               "$type": "Document",
@@ -255,8 +244,7 @@
               "RelativeToolTip": "Blogs.Core\\Interfaces\\IBlogRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:08:29.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:08:29.714Z"
             },
             {
               "$type": "Document",
@@ -268,8 +256,7 @@
               "RelativeToolTip": "Blogs.Core\\Model\\Blog.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:05:57.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:05:57.429Z"
             }
           ]
         }

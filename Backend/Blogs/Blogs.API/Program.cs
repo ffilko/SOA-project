@@ -20,6 +20,13 @@ builder.Services.AddScoped<IBlogService, BlogService>();
 
 var app = builder.Build();
 
+// Auto migracija
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BlogDbContext>();
+    db.Database.Migrate();
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
