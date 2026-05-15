@@ -2,6 +2,7 @@ using Blogs.Core.Interfaces;
 using Blogs.Core.Services;
 using Blogs.Infrastructure.Database;
 using Blogs.Infrastructure.Repositories;
+using Comments.Core.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,12 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
 // Dependency Injection
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 builder.Services.AddScoped<IBlogService, BlogService>();
+
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+
+builder.Services.AddScoped<ILikeRepository, LikeRepository>();
+builder.Services.AddScoped<ILikeService, LikeService>();
 
 var app = builder.Build();
 

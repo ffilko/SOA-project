@@ -21,7 +21,6 @@ namespace Blogs.Core.Services
         {
             return _blogRepository.GetById(id);
         }
-
         public List<Blog> GetAll()
         {
             return _blogRepository.GetAll();
