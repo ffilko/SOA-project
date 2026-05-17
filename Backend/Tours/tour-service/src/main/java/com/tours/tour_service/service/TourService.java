@@ -1,0 +1,47 @@
+package com.tours.tour_service.service;
+
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import com.tours.tour_service.DTO.TourDTO;
+import com.tours.tour_service.enums.TourStatus;
+import com.tours.tour_service.model.KeyPoint;
+import com.tours.tour_service.model.Tour;
+import com.tours.tour_service.repo.TourRepository;
+
+@Service
+public class TourService {
+	
+	private final TourRepository tourRepository;
+
+	public TourService(TourRepository tourRepository) {
+	    this.tourRepository = tourRepository;
+	}
+	
+	public Tour createTour(TourDTO dto) {
+
+	    Tour tour = new Tour();
+	    
+	    tour.setAuthorId(dto.getAuthorId());
+	    tour.setName(dto.getName());
+	    tour.setDescription(dto.getDescription());
+	    tour.setDifficulty(dto.getDifficulty());
+	    tour.setTags(dto.getTags());
+
+	    tour.setPrice(0);
+	    tour.setStatus(TourStatus.DRAFT);
+
+	    return tourRepository.save(tour);
+	}
+	
+	public Tour addKeyPointToTour(String tourId, KeyPoint keyPoint) {
+	    Tour tour = tourRepository.findById(tourId)
+	            .orElseThrow(() -> new RuntimeException("Tour not found"));
+
+	    tour.getKeyPoints().add(keyPoint);
+
+	    return tourRepository.save(tour);
+	}
+
+}
