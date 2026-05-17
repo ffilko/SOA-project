@@ -7,5 +7,6 @@ namespace Blogs.Core.Interfaces
         Blog Create(Blog blog);
         Blog GetById(Guid id);
         List<Blog> GetAll();
+        Task<List<Blog>> GetFeed(Guid userId);
     }
 }

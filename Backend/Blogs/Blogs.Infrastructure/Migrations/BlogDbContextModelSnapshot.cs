@@ -50,6 +50,30 @@ namespace Blogs.Infrastructure.Migrations
 
                     b.ToTable("Blogs");
                 });
+
+            modelBuilder.Entity("Blogs.Core.Model.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BlogId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comments");
+                });
 #pragma warning restore 612, 618
         }
     }

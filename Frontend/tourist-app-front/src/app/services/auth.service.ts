@@ -61,4 +61,9 @@ export class AuthService {
     
     return this.http.put(`${this.baseUrl}users/${userId}/block`, {}, { headers });
   }
+
+  getUserById(userId: string) {
+    const headers = new HttpHeaders({'Authorization': 'Bearer ' + this.getToken()});
+    return this.http.get<any>(`${this.baseUrl}user/${userId}`, { headers });
+  }
 }

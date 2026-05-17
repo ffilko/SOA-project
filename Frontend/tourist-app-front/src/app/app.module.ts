@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { FeedComponentComponent } from './feed-component/feed-component.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AdminComponent } from './pages/admin/admin.component';
     LoginComponent,
     ProfileComponent,
     NavbarComponent,
-    AdminComponent
+    AdminComponent,
+    FeedComponentComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

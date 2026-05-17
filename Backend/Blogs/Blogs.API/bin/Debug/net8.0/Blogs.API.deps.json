@@ -570,7 +570,7 @@
       "Blogs.Core/1.0.0": {
         "runtime": {
           "Blogs.Core.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -582,7 +582,7 @@
         },
         "runtime": {
           "Blogs.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
