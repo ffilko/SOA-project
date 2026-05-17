@@ -75,6 +75,25 @@ services:
     networks:
       - app-network
 
+  tours-service:
+    build:
+      context: ./Backend/Tours/tour-service
+      dockerfile: Dockerfile
+    container_name: tours
+    restart: always
+    ports:
+      - "8083:8083"
+    depends_on:
+      - neo4j-db
+    environment:
+      SPRING_NEO4J_URI: bolt://neo4j-db:7687
+      SPRING_NEO4J_AUTHENTICATION_USERNAME: neo4j
+      SPRING_NEO4J_AUTHENTICATION_PASSWORD: password
+    volumes:
+      - ./tours-images:/app/uploads
+    networks:
+      - app-network
+
   frontend:
     build: ./Frontend/tourist-app-front
     container_name: frontend

@@ -1,0 +1,30 @@
+<div class="review-container">
+  <button (click)="goBack()" class="btn-back">← Back to My Tours</button>
+  
+  <h3>Leave a Review</h3>
+  
+  <div class="form-group">
+    <label>Rating (1-5):</label>
+    <input type="number" min="1" max="5" [(ngModel)]="reviewModel.rating" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Comment:</label>
+    <textarea [(ngModel)]="reviewModel.comment" class="form-control" placeholder="Share details of your experience..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Visit Date:</label>
+    <input type="date" [(ngModel)]="reviewModel.visitDate" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Images:</label>
+    <input type="file" multiple accept="image/*" (change)="onFileChange($event)" class="file-input">
+  </div>
+
+  <button (click)="submitReview()" class="btn-submit">Submit Review</button>
+
+  <hr class="divider">
+  </div>
+</div>

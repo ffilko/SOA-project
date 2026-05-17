@@ -12,6 +12,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { FeedComponentComponent } from './feed-component/feed-component.component';
 import { BlogComponent } from './blog/blog.component';
+import { ReviewFormComponent } from './pages/review-form/review-form.component';
+import { MyToursComponent } from './pages/my-tours/my-tours.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { BlogComponent } from './blog/blog.component';
     NavbarComponent,
     AdminComponent,
     FeedComponentComponent,
-    BlogComponent
+    BlogComponent,
+    ReviewFormComponent,
+    MyToursComponent
   ],
   imports: [
     BrowserModule,
