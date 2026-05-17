@@ -1,0 +1,410 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42CC358E-D2D5-4C6F-B3A6-658605CC7F20}|Blogs.API\\Blogs.API.csproj|solutionrelative:blogs.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.infrastructure\\repositories\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|solutionrelative:blogs.infrastructure\\repositories\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.infrastructure\\database\\blogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|solutionrelative:blogs.infrastructure\\database\\blogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\services\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\services\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\services\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\services\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\interfaces\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\interfaces\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\interfaces\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\interfaces\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\dto\\createcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\dto\\createcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Migrations\\20260517094914_Init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Blogs.Infrastructure\\Migrations\\20260517094914_Init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.infrastructure\\repositories\\likerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|solutionrelative:blogs.infrastructure\\repositories\\likerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.infrastructure\\repositories\\blogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFD99D-1E22-468D-8960-C9AD16304B41}|Blogs.Infrastructure\\Blogs.Infrastructure.csproj|solutionrelative:blogs.infrastructure\\repositories\\blogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\model\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\model\\like.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\model\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\model\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\interfaces\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\interfaces\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\interfaces\\ilikerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\interfaces\\ilikerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\interfaces\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\interfaces\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\interfaces\\iblogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\interfaces\\iblogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\dto\\updatecommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\dto\\updatecommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\dto\\likeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\dto\\likeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|d:\\soa projekat\\soa-project\\backend\\blogs\\blogs.core\\dto\\createlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5E6D4FD-49A1-4F6D-A2B1-BDD11CFA522E}|Blogs.Core\\Blogs.Core.csproj|solutionrelative:blogs.core\\dto\\createlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 242,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateCommentDTO.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\CreateCommentDTO.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\DTO\\CreateCommentDTO.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\CreateCommentDTO.cs",
+              "RelativeToolTip": "Blogs.Core\\DTO\\CreateCommentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:54:42.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.API\\Program.cs",
+              "RelativeDocumentMoniker": "Blogs.API\\Program.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.API\\Program.cs",
+              "RelativeToolTip": "Blogs.API\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAkwDAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:54:36.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260517094914_Init.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Migrations\\20260517094914_Init.cs",
+              "RelativeDocumentMoniker": "Blogs.Infrastructure\\Migrations\\20260517094914_Init.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Migrations\\20260517094914_Init.cs",
+              "RelativeToolTip": "Blogs.Infrastructure\\Migrations\\20260517094914_Init.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:49:14.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LikeRepository.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Repositories\\LikeRepository.cs",
+              "RelativeDocumentMoniker": "Blogs.Infrastructure\\Repositories\\LikeRepository.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Repositories\\LikeRepository.cs",
+              "RelativeToolTip": "Blogs.Infrastructure\\Repositories\\LikeRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:51.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommentRepository.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Repositories\\CommentRepository.cs",
+              "RelativeDocumentMoniker": "Blogs.Infrastructure\\Repositories\\CommentRepository.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Repositories\\CommentRepository.cs",
+              "RelativeToolTip": "Blogs.Infrastructure\\Repositories\\CommentRepository.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAuwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:49.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BlogRepository.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Repositories\\BlogRepository.cs",
+              "RelativeDocumentMoniker": "Blogs.Infrastructure\\Repositories\\BlogRepository.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Repositories\\BlogRepository.cs",
+              "RelativeToolTip": "Blogs.Infrastructure\\Repositories\\BlogRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:47.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BlogDbContext.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Database\\BlogDbContext.cs",
+              "RelativeDocumentMoniker": "Blogs.Infrastructure\\Database\\BlogDbContext.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Infrastructure\\Database\\BlogDbContext.cs",
+              "RelativeToolTip": "Blogs.Infrastructure\\Database\\BlogDbContext.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAkwEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:43.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LikeService.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Services\\LikeService.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Services\\LikeService.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Services\\LikeService.cs",
+              "RelativeToolTip": "Blogs.Core\\Services\\LikeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:40.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Services\\CommentService.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Services\\CommentService.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Services\\CommentService.cs",
+              "RelativeToolTip": "Blogs.Core\\Services\\CommentService.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAYwFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:38.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlogService.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Services\\BlogService.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Services\\BlogService.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Services\\BlogService.cs",
+              "RelativeToolTip": "Blogs.Core\\Services\\BlogService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:34.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Like.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Model\\Like.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Model\\Like.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Model\\Like.cs",
+              "RelativeToolTip": "Blogs.Core\\Model\\Like.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:33.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Model\\Comment.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Model\\Comment.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Model\\Comment.cs",
+              "RelativeToolTip": "Blogs.Core\\Model\\Comment.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAowBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:07.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Blog.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Model\\Blog.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Model\\Blog.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Model\\Blog.cs",
+              "RelativeToolTip": "Blogs.Core\\Model\\Blog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:06.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ILikeService.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ILikeService.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Interfaces\\ILikeService.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ILikeService.cs",
+              "RelativeToolTip": "Blogs.Core\\Interfaces\\ILikeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:04.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ILikeRepository.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ILikeRepository.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Interfaces\\ILikeRepository.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ILikeRepository.cs",
+              "RelativeToolTip": "Blogs.Core\\Interfaces\\ILikeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:04.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICommentService.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ICommentService.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Interfaces\\ICommentService.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ICommentService.cs",
+              "RelativeToolTip": "Blogs.Core\\Interfaces\\ICommentService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAowBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:31:02.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ICommentRepository.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ICommentRepository.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Interfaces\\ICommentRepository.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\ICommentRepository.cs",
+              "RelativeToolTip": "Blogs.Core\\Interfaces\\ICommentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:30:59.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IBlogService.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\IBlogService.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Interfaces\\IBlogService.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\IBlogService.cs",
+              "RelativeToolTip": "Blogs.Core\\Interfaces\\IBlogService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:30:58.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IBlogRepository.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\IBlogRepository.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\Interfaces\\IBlogRepository.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\Interfaces\\IBlogRepository.cs",
+              "RelativeToolTip": "Blogs.Core\\Interfaces\\IBlogRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:30:57.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UpdateCommentDTO.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\UpdateCommentDTO.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\DTO\\UpdateCommentDTO.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\UpdateCommentDTO.cs",
+              "RelativeToolTip": "Blogs.Core\\DTO\\UpdateCommentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:30:56.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LikeResponseDTO.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\LikeResponseDTO.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\DTO\\LikeResponseDTO.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\LikeResponseDTO.cs",
+              "RelativeToolTip": "Blogs.Core\\DTO\\LikeResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:30:55.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CreateLikeDTO.cs",
+              "DocumentMoniker": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\CreateLikeDTO.cs",
+              "RelativeDocumentMoniker": "Blogs.Core\\DTO\\CreateLikeDTO.cs",
+              "ToolTip": "D:\\SOA projekat\\SOA-project\\Backend\\Blogs\\Blogs.Core\\DTO\\CreateLikeDTO.cs",
+              "RelativeToolTip": "Blogs.Core\\DTO\\CreateLikeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:30:54.9Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,7 @@ namespace Comments.API.Controllers
             {
                 UserId = dto.UserId,
                 BlogId = dto.BlogId,
-                Text = dto.Text
+                Content = dto.Text
             };
 
             var created = _commentService.Create(comment);
@@ -35,7 +35,7 @@ namespace Comments.API.Controllers
                 Id = created.Id,
                 UserId = created.UserId,
                 BlogId = created.BlogId,
-                Text = created.Text,
+                Content = created.Content,
                 CreatedAt = created.CreatedAt,
                 LastChange = created.LastChange,
             };
@@ -55,7 +55,7 @@ namespace Comments.API.Controllers
                 Id = Comment.Id,
                 UserId = Comment.UserId,
                 BlogId = Comment.BlogId,
-                Text = Comment.Text,
+                Content = Comment.Content,
                 CreatedAt = Comment.CreatedAt,
                 LastChange = Comment.LastChange
             };
@@ -73,7 +73,7 @@ namespace Comments.API.Controllers
                 Id = comment.Id,
                 UserId = comment.UserId,
                 BlogId = comment.BlogId,
-                Text = comment.Text,
+                Content = comment.Content,
                 CreatedAt = comment.CreatedAt,
                 LastChange = comment.LastChange
             }).ToList();
@@ -92,7 +92,7 @@ namespace Comments.API.Controllers
                 Id = Comment.Id,
                 UserId = Comment.UserId,
                 BlogId = Comment.BlogId,
-                Text = Comment.Text,
+                Content = Comment.Content,
                 CreatedAt = Comment.CreatedAt,
                 LastChange = Comment.LastChange
             }).ToList();
@@ -108,7 +108,7 @@ namespace Comments.API.Controllers
             if (comment == null)
                 return NotFound();
 
-            comment.Text = dto.Text;
+            comment.Content = dto.Text;
 
             _commentService.Update(comment);
 

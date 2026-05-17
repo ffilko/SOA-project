@@ -42,7 +42,9 @@ namespace Blogs.Infrastructure.Repositories
 
         public List<Comment> GetByBlogId(Guid blogId)
         {
-            return _context.Comments.Where(b => b.BlogId == blogId).ToList();
+            return _context.Comments
+                .Where(c => c.BlogId == blogId)
+                .ToList();
         }
     }
 }

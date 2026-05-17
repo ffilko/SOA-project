@@ -12,7 +12,9 @@ namespace Blogs.Core.Interfaces
         Comment Create(Comment comment);
         Comment Update(Comment comment);
         Comment GetById(Guid id);
+        Task<Comment> AddComment(Guid blogId, Guid userId, string content, Guid blogAuthorId);
         List<Comment> GetByBlogId(Guid blogId);
         List<Comment> GetAll();
+        Task<bool> CanComment(Guid userId, Guid blogAuthorId);
     }
 }

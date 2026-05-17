@@ -54,7 +54,7 @@ namespace Blogs.Infrastructure.Database
                 entity.Property(c => c.BlogId)
                     .IsRequired();
 
-                entity.Property(c => c.Text)
+                entity.Property(c => c.Content)
                     .IsRequired();
 
                 entity.Property(c => c.CreatedAt)

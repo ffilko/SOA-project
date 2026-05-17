@@ -6,6 +6,8 @@
   </div>
 
   <div *ngIf="authService.isLoggedIn$ | async">
+    <a routerLink="/feed">Feed</a>
+    <a routerLink="/profile">Profil</a>
     <button (click)="logout()">Logout</button>
   </div>
 
