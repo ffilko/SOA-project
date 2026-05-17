@@ -24,6 +24,21 @@ namespace Blogs.Infrastructure.Repositories
             _context.SaveChanges();
             return comment;
         }
+        public Comment Update(Comment comment)
+        {
+            _context.Comments.Update(comment);
+            _context.SaveChanges();
+            return comment;
+        }
+        public Comment GetById(Guid id)
+        {
+            return _context.Comments.FirstOrDefault(b => b.Id == id);
+        }
+
+        public List<Comment> GetAll()
+        {
+            return _context.Comments.ToList();
+        }
 
         public List<Comment> GetByBlogId(Guid blogId)
         {

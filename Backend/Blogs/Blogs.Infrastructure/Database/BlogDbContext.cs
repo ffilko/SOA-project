@@ -7,6 +7,7 @@ namespace Blogs.Infrastructure.Database
     public class BlogDbContext : DbContext
     {
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Like> Likes { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
@@ -31,6 +32,39 @@ namespace Blogs.Infrastructure.Database
                         c => c.ToList()
                     ));
             });
+
+            modelBuilder.Entity<Like>(entity =>
+            {
+                entity.HasKey(l => l.Id);
+
+                entity.Property(l => l.UserId)
+                    .IsRequired();
+
+                entity.Property(l => l.BlogId)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity<Comment>(entity =>
+            {
+                entity.HasKey(c => c.Id);
+
+                entity.Property(c => c.UserId)
+                    .IsRequired();
+
+                entity.Property(c => c.BlogId)
+                    .IsRequired();
+
+                entity.Property(c => c.Content)
+                    .IsRequired();
+
+                entity.Property(c => c.CreatedAt)
+                    .IsRequired();
+
+                entity.Property(c => c.LastChange)
+                    .IsRequired();
+            });
+
+
         }
     }
 }

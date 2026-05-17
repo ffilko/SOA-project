@@ -121,7 +121,7 @@ namespace Blogs.API.Controllers
             var blog = _blogService.GetById(blogId);
             if (blog == null)
                 return NotFound();
-
+            Console.WriteLine($"AddComment: userId={dto.UserId}, blogAuthorId={blog.UserId}, content={dto.Content}");
             var comment = await _commentService.AddComment(
                 blogId,
                 dto.UserId,

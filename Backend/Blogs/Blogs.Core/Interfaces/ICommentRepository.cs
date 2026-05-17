@@ -10,6 +10,9 @@ namespace Blogs.Core.Interfaces
     public interface ICommentRepository
     {
         Comment Create(Comment comment);
+        Comment Update(Comment comment);
+        Comment GetById(Guid id);
         List<Comment> GetByBlogId(Guid blogId);
+        List<Comment> GetAll();
     }
 }
