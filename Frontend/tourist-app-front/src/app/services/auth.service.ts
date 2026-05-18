@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'http://localhost:9000/api/stakeholders/';
   private tokenKey = 'token';
 
   private loggedInSubject = new BehaviorSubject<boolean>(!!localStorage.getItem(this.tokenKey));
@@ -66,5 +66,4 @@ export class AuthService {
     const headers = new HttpHeaders({'Authorization': 'Bearer ' + this.getToken()});
     return this.http.get<any>(`${this.baseUrl}user/${userId}`, { headers });
   }
-
 }

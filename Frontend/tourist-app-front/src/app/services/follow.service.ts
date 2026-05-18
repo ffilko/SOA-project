@@ -5,7 +5,7 @@ import { AuthService } from './auth.service';
 @Injectable({ providedIn: 'root' })
 export class FollowService {
 
-  private baseUrl = 'http://localhost:8082/api/follow';
+  private baseUrl = 'http://localhost:9000/api/follow';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
