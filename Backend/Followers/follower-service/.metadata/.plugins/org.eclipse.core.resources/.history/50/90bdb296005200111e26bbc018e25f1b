@@ -1,0 +1,5 @@
+package com.tours.tour_service.configuration;
+
+public class CorsConfig {
+
+}

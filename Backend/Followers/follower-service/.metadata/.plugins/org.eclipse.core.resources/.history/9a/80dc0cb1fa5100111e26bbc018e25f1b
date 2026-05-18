@@ -1,0 +1,5 @@
+package com.tours.tour_service.service.controller;
+
+public class TourController {
+
+}

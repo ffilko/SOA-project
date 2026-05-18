@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.repo.TourRepository"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.service.TourService"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.model.Tour"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.enums.TourDifficulty"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.enums.TourStatus"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.DTO.TourDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.data.neo4j.core.schema.Id"/>
+    <fullyQualifiedTypeName name="org.springframework.data.neo4j.core.schema.Node"/>
+    <fullyQualifiedTypeName name="org.springframework.data.neo4j.core.schema.Relationship"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.tours.tour_service.model.KeyPoint"/>
+    <fullyQualifiedTypeName name="java.util.UUID"/>
+</qualifiedTypeNameHistroy>

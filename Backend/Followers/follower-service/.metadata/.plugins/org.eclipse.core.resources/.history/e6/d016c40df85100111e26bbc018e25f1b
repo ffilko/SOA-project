@@ -1,0 +1,5 @@
+package com.tours.tour_service.service;
+
+public class TourService {
+
+}
