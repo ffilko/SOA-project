@@ -1,0 +1,20 @@
+<div class="my-tours-container">
+  <h2>My Completed Tours</h2>
+  <p class="subtitle">Select a tour to leave a review and share your experience.</p>
+
+  <div *ngIf="completedTours.length === 0" style="font-style: italic; color: #777;">
+    No tours found.
+  </div>
+
+  <div *ngFor="let tour of completedTours" class="tour-card">
+    
+    <div class="tour-info">
+      <h3>{{ tour.name }}</h3>
+      <p>{{ tour.description }}</p> </div>
+
+    <button (click)="goToReview(tour.id)" class="btn-review">
+      Leave a review
+    </button>
+    
+  </div>
+</div>

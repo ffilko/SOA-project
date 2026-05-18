@@ -2,9 +2,12 @@ package com.tours.tour_service.service.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+
 
 import com.tours.tour_service.DTO.TourDTO;
 import com.tours.tour_service.model.KeyPoint;
@@ -34,4 +37,8 @@ public class TourController {
         return tourService.addKeyPointToTour(tourId, keyPoint);
     }
 
+    @GetMapping
+    public List<Tour> getAllTours() {
+        return tourService.getAllTours();
+    }
 }

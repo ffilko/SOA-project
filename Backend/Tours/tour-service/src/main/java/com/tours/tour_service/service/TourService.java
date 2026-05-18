@@ -10,6 +10,8 @@ import com.tours.tour_service.model.KeyPoint;
 import com.tours.tour_service.model.Tour;
 import com.tours.tour_service.repo.TourRepository;
 
+import java.util.List;
+
 @Service
 public class TourService {
 	
@@ -42,6 +44,10 @@ public class TourService {
 	    tour.getKeyPoints().add(keyPoint);
 
 	    return tourRepository.save(tour);
+	}
+
+	public List<Tour> getAllTours() {
+		return tourRepository.findAll();
 	}
 
 }
