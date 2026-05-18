@@ -66,4 +66,5 @@ export class AuthService {
     const headers = new HttpHeaders({'Authorization': 'Bearer ' + this.getToken()});
     return this.http.get<any>(`${this.baseUrl}user/${userId}`, { headers });
   }
+
 }

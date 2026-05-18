@@ -7,6 +7,8 @@ RUN mvn dependency:go-offline
 
 COPY src ./src
 
+RUN mvn clean package -DskipTests
+
 EXPOSE 8083
 
-CMD ["mvn", "spring-boot:run"]
+ENTRYPOINT ["sh", "-c", "java -jar target/*.jar"]

@@ -21,6 +21,10 @@ public class TourService {
 	    this.tourRepository = tourRepository;
 	}
 	
+	public List<Tour> getToursByAuthorId(String authorId) {
+	    return tourRepository.findByAuthorId(authorId);
+	}
+	
 	public Tour createTour(TourDTO dto) {
 
 	    Tour tour = new Tour();

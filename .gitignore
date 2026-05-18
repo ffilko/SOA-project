@@ -9,6 +9,28 @@ obj/
 # Angular
 node_modules/
 dist/
+.angular/
+coverage/
+
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse
+.metadata/
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
 
 # Logs
 *.log
@@ -16,3 +38,11 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# Docker
+*.pid
+docker-data/
+
+# Temporary files
+tmp/
+temp/

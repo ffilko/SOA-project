@@ -1,0 +1,132 @@
+<div class="tour-form-container">
+  <h2>Create Tour</h2>
+
+  <form (ngSubmit)="createTour()">
+
+    <div class="form-group">
+      <label for="name">Tour Name</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="newTour.name"
+        name="name"
+        placeholder="Enter tour name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="4"
+        [(ngModel)]="newTour.description"
+        placeholder="Enter description"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="difficulty">Difficulty</label>
+      <select id="difficulty" [(ngModel)]="newTour.difficulty" name="difficulty">
+        <option value="EASY">Easy</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HARD">Hard</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input
+        type="text"
+        id="tags"
+        name="tags"
+        [(ngModel)]="tagsInput"
+        placeholder="nature, hiking, mountain"
+      />
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Add Tour
+    </button>
+
+  </form>
+</div>
+
+<div class="tour-list-container">
+  <h2>My Tours</h2>
+
+  <div class="tour-card" *ngFor="let tour of tours">
+
+    <h3>{{ tour.name }}</h3>
+
+    <p>
+      <strong>Description:</strong>
+      {{ tour.description }}
+    </p>
+
+    <p>
+      <strong>Difficulty:</strong>
+      {{ tour.difficulty }}
+    </p>
+
+
+    <div class="tags">
+      <span class="tag" *ngFor="let tag of tour.tags">
+        {{ tag }}
+      </span>
+    </div>
+
+    <button class="add-keypoint-btn" (click)="openKeyPointModal(tour)">
+  Add KeyPoint
+</button>
+
+<div class="modal-backdrop" *ngIf="selectedTour">
+
+  <div class="modal">
+
+    <h2>Add KeyPoint</h2>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="newKeyPoint.name">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea [(ngModel)]="newKeyPoint.description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Latitude</label>
+      <input type="number" [(ngModel)]="newKeyPoint.latitude">
+    </div>
+
+    <div class="form-group">
+      <label>Longitude</label>
+      <input type="number" [(ngModel)]="newKeyPoint.longitude">
+    </div>
+
+    <div class="form-group">
+      <label>Image URL</label>
+      <input type="text" [(ngModel)]="newKeyPoint.imageUrl">
+    </div>
+
+    <div class="modal-actions">
+
+      <button (click)="saveKeyPoint()">
+        Save
+      </button>
+
+      <button class="cancel-btn" (click)="closeKeyPointModal()">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+</div>
