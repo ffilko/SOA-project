@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewService } from '../../services/review.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-review-form',
@@ -11,7 +12,7 @@ export class ReviewFormComponent implements OnInit {
   reviewModel = {
     rating: 5,
     comment: '',
-    touristId: localStorage.getItem('userId') || '',
+    touristId: '',
     visitDate: '',
     tourId: ''
   };
@@ -22,12 +23,13 @@ export class ReviewFormComponent implements OnInit {
   constructor(
     private reviewService: ReviewService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.reviewModel.touristId = this.authService.getUserId() || '';
     this.reviewModel.tourId = this.route.snapshot.paramMap.get('tourId') || '';
-    this.fetchReviews();
   }
 
   onFileChange(event: any): void {
@@ -48,19 +50,11 @@ export class ReviewFormComponent implements OnInit {
         this.reviewModel.comment = '';
         this.reviewModel.rating = 5;
         this.uploadedFiles = [];
-        this.fetchReviews();
       },
       error: () => alert('Error submitting review.')
     });
   }
 
-  fetchReviews(): void {
-    if (this.reviewModel.tourId) {
-      this.reviewService.getReviewsByTour(this.reviewModel.tourId).subscribe(data => {
-        this.loadedReviews = data || [];
-      });
-    }
-  }
 
   goBack(): void {
     this.router.navigate(['/my-tours']);

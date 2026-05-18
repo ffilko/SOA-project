@@ -8,6 +8,8 @@
   <div *ngIf="authService.isLoggedIn$ | async">
     <a routerLink="/feed">Feed</a>
     <a routerLink="/profile">Profil</a>
+    <a routerLink="/my-tours">My Tours</a>
+    <a routerLink="/position-simulator">Position Simulator</a>
     <button (click)="logout()">Logout</button>
   </div>
 

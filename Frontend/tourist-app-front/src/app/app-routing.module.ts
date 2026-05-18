@@ -8,6 +8,7 @@ import { FeedComponentComponent } from './feed-component/feed-component.componen
 import { BlogComponent } from './blog/blog.component';
 import { MyToursComponent } from 'src/app/pages/my-tours/my-tours.component';
 import { ReviewFormComponent } from './pages/review-form/review-form.component';
+import { PositionSimulatorComponent } from './pages/position-simulator/position-simulator.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponentComponent },
   { path: 'blog/:id', component: BlogComponent },
   { path: 'my-tours', component: MyToursComponent },
-  { path: 'review/:tourId', component: ReviewFormComponent }
+  { path: 'review/:tourId', component: ReviewFormComponent },
+  { path: 'position-simulator', component: PositionSimulatorComponent }
 ];
 
 @NgModule({

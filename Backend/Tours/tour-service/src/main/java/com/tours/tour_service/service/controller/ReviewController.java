@@ -1,4 +1,4 @@
-package com.tours.tour_service.controller;
+package com.tours.tour_service.service.controller;
 
 import com.tours.tour_service.DTO.ReviewDTO;
 import com.tours.tour_service.model.Review;
