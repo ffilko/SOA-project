@@ -5,11 +5,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { KeyPoint } from '../models/keyPoint';
 
-
 @Injectable({ providedIn: 'root' })
 export class TourService {
 
-  private baseUrl = 'http://localhost:8083/api/tours';
+  private baseUrl = 'http://localhost:9000/api/tours';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -26,6 +25,6 @@ export class TourService {
   }
 
   addKeyPoint(tourId: string, keyPoint: KeyPoint) {
-    return this.http.post<Tour>(`${this.baseUrl}/${tourId}/keypoints`,keyPoint);
+    return this.http.post<Tour>(`${this.baseUrl}/${tourId}/keypoints`, keyPoint);
   }
 }

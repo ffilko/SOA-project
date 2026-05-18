@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
-  private apiUrl = 'http://localhost:8083/api/reviews';
-  private toursUrl = 'http://localhost:8083/api/tours';
+  private apiUrl = 'http://localhost:9000/api/reviews';
+  private toursUrl = 'http://localhost:9000/api/tours';
 
   constructor(private http: HttpClient) {}
+
   getCompletedTours(): Observable<any[]> {
     return this.http.get<any[]>(this.toursUrl);
   }
@@ -23,6 +24,7 @@ export class ReviewService {
     for (let file of selectedFiles) {
       formData.append('files', file, file.name);
     }
+
     return this.http.post(this.apiUrl, formData);
   }
 

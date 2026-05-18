@@ -1,15 +1,30 @@
-version: "3.7"
 services:
+  api-gateway:
+    build:
+      context: ./Backend/Gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    restart: always
+    ports:
+      - "9000:9000"
+    depends_on:
+      - stakeholders-service
+      - blogs-service
+      - followers-service
+      - tours-service
+    networks:
+      - app-network
+
   stakeholders-service:
-    build: 
+    build:
       context: ./Backend/Stakeholders
       dockerfile: Dockerfile
     container_name: stakeholders
     restart: always
-    ports:
-      - "8080:8080"
     depends_on:
       - database
+    expose:
+      - "8080"
     networks:
       - app-network
 
@@ -21,12 +36,10 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: tourist_app
-    ports:
-      - "5432:5432"
-    networks:
-      - app-network
     volumes:
       - database-data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   blogs-service:
     build:
@@ -34,12 +47,12 @@ services:
       dockerfile: Blogs.API/Dockerfile
     container_name: blogs
     restart: no
-    ports:
-      - "8081:8080"
     depends_on:
       - blogs-database
     environment:
       - ConnectionStrings__DefaultConnection=Host=blogs-database;Database=blogs_db;Username=postgres;Password=root
+    expose:
+      - "8080"
     networks:
       - app-network
 
@@ -51,12 +64,10 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: blogs_db
-    ports:
-      - "5433:5432"
-    networks:
-      - app-network
     volumes:
       - blogs-database-data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
   followers-service:
     build:
@@ -64,14 +75,14 @@ services:
       dockerfile: Dockerfile
     container_name: followers
     restart: always
-    ports:
-      - "8082:8082"
     depends_on:
       - neo4j-db
     environment:
       SPRING_NEO4J_URI: bolt://neo4j-db:7687
       SPRING_NEO4J_AUTHENTICATION_USERNAME: neo4j
       SPRING_NEO4J_AUTHENTICATION_PASSWORD: password
+    expose:
+      - "8082"
     networks:
       - app-network
 
@@ -81,25 +92,17 @@ services:
       dockerfile: Dockerfile
     container_name: tours
     restart: always
-    ports:
-      - "8083:8083"
     depends_on:
       - tours-neo4j
     environment:
       SPRING_NEO4J_URI: bolt://tours-neo4j:7687
       SPRING_NEO4J_AUTHENTICATION_USERNAME: neo4j
       SPRING_NEO4J_AUTHENTICATION_PASSWORD: notverysecret
+    expose:
+      - "8083"
     networks:
       - app-network
 
-#  frontend:
-#    build: ./Frontend/tourist-app-front
- #   container_name: frontend
-  #  ports:
-   #   - "4200:4200"
-    #networks:
-     # - app-network
-  
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
@@ -109,38 +112,38 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
     networks:
       - app-network
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin 
 
   neo4j-db:
     image: neo4j
     container_name: neo4j-db
     restart: always
+    environment:
+      NEO4J_AUTH: neo4j/password
     ports:
       - "7474:7474"
       - "7687:7687"
-    environment:
-      NEO4J_AUTH: neo4j/password
-    networks:
-      - app-network
     volumes:
       - neo4j-data:/data
+    networks:
+      - app-network
 
   tours-neo4j:
-    image: 'neo4j:latest'
+    image: neo4j:latest
     container_name: tours-neo4j
     restart: always
     environment:
       NEO4J_AUTH: neo4j/notverysecret
     ports:
-      - '7475:7474'
-      - '7688:7687'
+      - "7475:7474"
+      - "7688:7687"
+    volumes:
+      - tours-neo4j-data:/data
     networks:
       - app-network
-    volumes:
-    - tours-neo4j-data:/data
 
 volumes:
   database-data:
