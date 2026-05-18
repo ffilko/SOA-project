@@ -103,6 +103,20 @@ services:
     networks:
       - app-network
 
+  frontend:
+    build:
+      context: ./Frontend/tourist-app-front
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    depends_on:
+      - api-gateway
+    ports:
+      - "4200:4200"
+    command: npm start -- --host 0.0.0.0
+    networks:
+      - app-network
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
