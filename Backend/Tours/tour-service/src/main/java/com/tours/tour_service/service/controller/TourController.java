@@ -23,6 +23,11 @@ public class TourController {
     public TourController(TourService tourService) {
         this.tourService = tourService;
     }
+    
+    @GetMapping("/author/{authorId}")
+    public List<Tour> getToursByAuthor(@PathVariable String authorId) {
+        return tourService.getToursByAuthorId(authorId);
+    }
 
     @PostMapping
     public Tour createTour(@RequestBody TourDTO dto) {

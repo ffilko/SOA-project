@@ -92,13 +92,13 @@ services:
     networks:
       - app-network
 
-  frontend:
-    build: ./Frontend/tourist-app-front
-    container_name: frontend
-    ports:
-      - "4200:4200"
-    networks:
-      - app-network
+#  frontend:
+#    build: ./Frontend/tourist-app-front
+ #   container_name: frontend
+  #  ports:
+   #   - "4200:4200"
+    #networks:
+     # - app-network
   
   pgadmin:
     image: dpage/pgadmin4

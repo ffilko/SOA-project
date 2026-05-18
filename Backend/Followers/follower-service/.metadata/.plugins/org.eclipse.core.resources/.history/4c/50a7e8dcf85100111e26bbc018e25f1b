@@ -1,6 +1,0 @@
-package com.tours.tour_service.service;
-
-@Service
-public class TourService {
-
-}

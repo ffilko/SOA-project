@@ -14,6 +14,7 @@ import { FeedComponentComponent } from './feed-component/feed-component.componen
 import { BlogComponent } from './blog/blog.component';
 import { ReviewFormComponent } from './pages/review-form/review-form.component';
 import { MyToursComponent } from './pages/my-tours/my-tours.component';
+import { ToursComponent } from './pages/tours/tours.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MyToursComponent } from './pages/my-tours/my-tours.component';
     FeedComponentComponent,
     BlogComponent,
     ReviewFormComponent,
-    MyToursComponent
+    MyToursComponent,
+    ToursComponent
   ],
   imports: [
     BrowserModule,
