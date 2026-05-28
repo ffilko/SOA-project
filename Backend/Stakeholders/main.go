@@ -3,15 +3,19 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	grpc "google.golang.org/grpc"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	grpcHandler "stakeholders.xws.com/grpc"
 	"stakeholders.xws.com/handler"
 	"stakeholders.xws.com/model"
+	"stakeholders.xws.com/proto"
 	"stakeholders.xws.com/repo"
 	"stakeholders.xws.com/service"
 )
@@ -60,6 +64,24 @@ func startServer(userHandler *handler.UserHandler, profileHandler *handler.Profi
 	log.Fatal(http.ListenAndServe(":8080", handler))
 }
 
+func startGRPC(userService *service.UserService) {
+	lis, err := net.Listen("tcp", ":50051")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	grpcServer := grpc.NewServer()
+
+	proto.RegisterUserServiceServer(grpcServer, &grpcHandler.UserGRPCServer{
+		UserService: userService,
+	})
+
+	log.Println("gRPC running on :50051")
+	if err := grpcServer.Serve(lis); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func main() {
 	db := initDB()
 	if db == nil {
@@ -74,5 +96,6 @@ func main() {
 	userHandler := &handler.UserHandler{UserService: userService}
 	profileHandler := &handler.ProfileHandler{ProfileService: profileService}
 
+	go startGRPC(userService)
 	startServer(userHandler, profileHandler)
 }
