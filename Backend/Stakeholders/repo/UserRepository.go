@@ -53,3 +53,8 @@ func (repo *UserRepository) UpdateUser(user *model.User) error {
 	}
 	return nil
 }
+
+func (repo *UserRepository) DeleteUser(id uuid.UUID) error {
+	dbResult := repo.DatabaseConnection.Delete(&model.User{}, "id = ?", id)
+	return dbResult.Error
+}

@@ -40,4 +40,19 @@ public class FollowService {
 		return userRepository.isFollowing(followerId, followingId);
 	}
 
+	public void deleteAllByUser(String userId) {
+		userRepository.removeAllFollowsByUser(userId);
+		userRepository.removeAllFollowersOfUser(userId);
+		userRepository.deleteWithAllRelationships(userId);
+	}
+
+	public void createUserNode(String userId) {
+		if (userRepository.existsById(userId)) {
+			return;
+		}
+
+		UserNode node = new UserNode(userId);
+		userRepository.save(node);
+	}
+
 }

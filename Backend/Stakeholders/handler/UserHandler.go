@@ -18,12 +18,13 @@ type UserHandler struct {
 }
 
 func RegisterUserRoutes(router *mux.Router, handler *UserHandler) {
-	router.HandleFunc("/user", BlockAuthenticated(handler.Register)).Methods("POST")
+	router.HandleFunc("/user", BlockAuthenticated(handler.RegisterWithSaga)).Methods("POST")
 	router.HandleFunc("/user/{id}", handler.Get).Methods("GET")
 	router.HandleFunc("/login", handler.Login).Methods("POST")
 	router.HandleFunc("/logout", handler.Logout).Methods("POST")
 	router.HandleFunc("/users", handler.GetAll).Methods("GET")
 	router.HandleFunc("/users/{id}/block", handler.BlockUser).Methods("PUT")
+	router.HandleFunc("/users/{id}/delete", handler.DeleteUserWithSaga).Methods("DELETE")
 }
 
 // Registracija korisnika

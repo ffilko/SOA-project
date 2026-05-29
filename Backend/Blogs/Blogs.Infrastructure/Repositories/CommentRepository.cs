@@ -1,6 +1,7 @@
 ﻿using Blogs.Core.Interfaces;
 using Blogs.Core.Model;
 using Blogs.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,14 @@ namespace Blogs.Infrastructure.Repositories
         public List<Comment> GetByBlogId(Guid blogId)
         {
             return _context.Comments
+                .Where(c => c.BlogId == blogId)
+                .ToList();
+        }
+
+        public List<Comment> GetByBlogIdIncludingDeleted(Guid blogId)
+        {
+            return _context.Comments
+                .IgnoreQueryFilters()
                 .Where(c => c.BlogId == blogId)
                 .ToList();
         }

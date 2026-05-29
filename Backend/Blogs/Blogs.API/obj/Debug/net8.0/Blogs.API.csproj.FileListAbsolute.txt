@@ -224,7 +224,6 @@ D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\staticwebas
 D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\staticwebassets.development.json
 D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\Blogs.API.csproj.Up2Date
 D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\Blogs.API.dll
 D:\SOA projekat\SOA-project\Backend\Blogs\Blogs.API\obj\Debug\net8.0\refint\Blogs.API.dll

@@ -9,45 +9,48 @@
     </p>
 
     <div *ngFor="let blog of blogs" style="border: 1px solid #ccc; padding: 16px; margin-bottom: 20px; border-radius: 6px;">
+      <div *ngIf="userExists(blog.userId)" 
+       style="border: 1px solid #ccc; padding: 16px; margin-bottom: 20px; border-radius: 6px;">
       <h3 style="margin: 0 0 4px;">{{ blog.title }}</h3>
-      <small style="color: #888;">
-        By <b>{{ getUsername(blog.userId) }}</b> &nbsp;|&nbsp; {{ blog.createdAt | date }}
-      </small>
-      <p>{{ blog.description }}</p>
-      <div *ngIf="blog.images?.length > 0">
-        <img *ngFor="let img of blog.images" [src]="img" width="200" style="margin-right: 8px; border-radius: 4px;" />
-      </div>
-
-      <!-- Toggle Comments -->
-      <button (click)="toggleComments(blog.id)" style="margin-top: 8px;">
-        {{ isExpanded(blog.id) ? 'Hide Comments' : 'Show Comments' }}
-      </button>
-
-      <!-- Comments Section -->
-      <div *ngIf="isExpanded(blog.id)" style="margin-top: 12px;">
-        <div *ngIf="commentsMap[blog.id]?.length === 0">
-          <i>No comments yet.</i>
-        </div>
-        <div *ngFor="let c of commentsMap[blog.id]"
-             style="background: #f5f5f5; padding: 8px; margin-bottom: 6px; border-radius: 4px;">
-          <b>{{ getUsername(c.userId) }}</b>: {{ c.content }}
+        <small style="color: #888;">
+          By <b>{{ getUsername(blog.userId) }}</b> &nbsp;|&nbsp; {{ blog.createdAt | date }}
+        </small>
+        <p>{{ blog.description }}</p>
+        <div *ngIf="blog.images?.length > 0">
+          <img *ngFor="let img of blog.images" [src]="img" width="200" style="margin-right: 8px; border-radius: 4px;" />
         </div>
 
-        <!-- Comment Form — only if following the author -->
-        <div *ngIf="isFollowing(blog.userId)" style="margin-top: 10px;">
-          <textarea
-            [(ngModel)]="newCommentMap[blog.id]"
-            rows="2"
-            cols="50"
-            placeholder="Write a comment...">
-          </textarea>
-          <br />
-          <button (click)="submitComment(blog.id, blog.userId)">Post Comment</button>
-        </div>
+        <!-- Toggle Comments -->
+        <button (click)="toggleComments(blog.id)" style="margin-top: 8px;">
+          {{ isExpanded(blog.id) ? 'Hide Comments' : 'Show Comments' }}
+        </button>
 
-        <p *ngIf="!isFollowing(blog.userId)" style="color: gray; font-size: 13px;">
-          Follow this user to leave a comment.
-        </p>
+        <!-- Comments Section -->
+        <div *ngIf="isExpanded(blog.id)" style="margin-top: 12px;">
+          <div *ngIf="commentsMap[blog.id]?.length === 0">
+            <i>No comments yet.</i>
+          </div>
+          <div *ngFor="let c of commentsMap[blog.id]"
+              style="background: #f5f5f5; padding: 8px; margin-bottom: 6px; border-radius: 4px;">
+            <b>{{ getUsername(c.userId) }}</b>: {{ c.content }}
+          </div>
+
+          <!-- Comment Form — only if following the author -->
+          <div *ngIf="isFollowing(blog.userId)" style="margin-top: 10px;">
+            <textarea
+              [(ngModel)]="newCommentMap[blog.id]"
+              rows="2"
+              cols="50"
+              placeholder="Write a comment...">
+            </textarea>
+            <br />
+            <button (click)="submitComment(blog.id, blog.userId)">Post Comment</button>
+          </div>
+
+          <p *ngIf="!isFollowing(blog.userId)" style="color: gray; font-size: 13px;">
+            Follow this user to leave a comment.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -58,11 +61,13 @@
 
     <p *ngIf="recommendations.length === 0">No suggestions available.</p>
 
-    <div *ngFor="let userId of recommendations" style="margin-bottom: 14px;">
-      <span>{{ getUsername(userId) }}</span>
-      <br />
-      <button *ngIf="!isFollowing(userId)" (click)="follow(userId)">Follow</button>
-      <button *ngIf="isFollowing(userId)" (click)="unfollow(userId)">Unfollow</button>
+    <div *ngFor="let userId of recommendations">
+      <div *ngIf="userExists(userId)" style="margin-bottom: 14px;">
+        <span>{{ getUsername(userId) }}</span>
+        <br />
+        <button *ngIf="!isFollowing(userId)" (click)="follow(userId)">Follow</button>
+        <button *ngIf="isFollowing(userId)" (click)="unfollow(userId)">Unfollow</button>
+      </div>
     </div>
   </div>
 

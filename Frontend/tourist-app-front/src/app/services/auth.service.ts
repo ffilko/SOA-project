@@ -66,4 +66,14 @@ export class AuthService {
     const headers = new HttpHeaders({'Authorization': 'Bearer ' + this.getToken()});
     return this.http.get<any>(`${this.baseUrl}user/${userId}`, { headers });
   }
+
+  deleteUser(userId: string) {
+    const token = this.getToken();
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });
+
+    return this.http.delete(
+      `${this.baseUrl}users/${userId}/delete`,
+      { headers }
+    );
+  }
 }

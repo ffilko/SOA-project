@@ -11,6 +11,7 @@ namespace Blogs.Core.Model
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<string> Images { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
         public Blog()
         {

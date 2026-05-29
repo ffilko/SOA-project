@@ -25,6 +25,9 @@ services:
       - database
     expose:
       - "8080"
+      - "50051"
+    ports:
+      - "50051:50051"
     networks:
       - app-network
 

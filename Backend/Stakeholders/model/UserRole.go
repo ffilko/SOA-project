@@ -20,3 +20,16 @@ func UserRoleToString(ur UserRole) string {
 		return "Unknown"
 	}
 }
+
+func UserRoleFromString(s string) UserRole {
+	switch s {
+	case "Tourist":
+		return Tourist
+	case "Guide":
+		return Guide
+	case "Administrator":
+		return Administrator
+	default:
+		return Tourist
+	}
+}

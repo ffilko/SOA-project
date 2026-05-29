@@ -6,7 +6,16 @@ import (
 	"github.com/google/uuid"
 	"stakeholders.xws.com/model"
 	"stakeholders.xws.com/repo"
+	"stakeholders.xws.com/saga"
 )
+
+type SagaSavedUser struct {
+	ID       string
+	Username string
+	Email    string
+	Password string
+	Role     string
+}
 
 type UserService struct {
 	UserRepo    *repo.UserRepository
@@ -67,4 +76,49 @@ func (service *UserService) BlockUser(id uuid.UUID) error {
 	user.IsBlocked = true
 
 	return service.UserRepo.UpdateUser(&user)
+}
+
+func (s *UserService) SoftDeleteUser(idStr string) (*saga.SavedUser, error) {
+	id, err := uuid.Parse(idStr)
+	if err != nil {
+		return nil, fmt.Errorf("invalid UUID: %w", err)
+	}
+
+	user, err := s.UserRepo.FindById(id)
+	if err != nil {
+		return nil, err
+	}
+
+	snapshot := &saga.SavedUser{
+		ID:       user.ID.String(),
+		Username: user.Username,
+		Email:    user.Email,
+		Password: user.Password,
+		Role:     model.UserRoleToString(user.Role),
+	}
+
+	if err := s.UserRepo.DeleteUser(id); err != nil {
+		return nil, err
+	}
+
+	return snapshot, nil
+}
+
+func (s *UserService) RestoreUser(saved *saga.SavedUser) error {
+	id, err := uuid.Parse(saved.ID)
+	if err != nil {
+		return err
+	}
+	user := model.User{
+		ID:       id,
+		Username: saved.Username,
+		Email:    saved.Email,
+		Password: saved.Password,
+		Role:     model.UserRoleFromString(saved.Role),
+	}
+	return s.UserRepo.CreateUser(&user)
+}
+
+func (s *UserService) DeleteUser(id uuid.UUID) error {
+	return s.UserRepo.DeleteUser(id)
 }
