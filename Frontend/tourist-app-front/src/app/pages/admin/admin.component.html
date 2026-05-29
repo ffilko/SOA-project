@@ -1,29 +1,48 @@
 <h2>Users</h2>
 
+<div style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc;">
+  <strong>Admin guideline:</strong>
+  <p>
+    <b>Block user</b> → Use when user is temporarily restricted (login still exists, data preserved).<br>
+    <b>Delete user</b> → Use when user must be permanently removed from all services (blogs, followers, system data).
+  </p>
+</div>
+
 <table border="1" *ngIf="users.length > 0" cellpadding="10">
   <thead>
     <tr>
       <th>Username</th>
       <th>Email</th>
       <th>Role</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
+
   <tbody>
     <tr *ngFor="let user of users">
       <td>{{ user.username }}</td>
       <td>{{ user.email }}</td>
+
       <td>
         <span *ngIf="user.role === 0">Turista</span>
         <span *ngIf="user.role === 1">Vodič</span>
         <span *ngIf="user.role === 2">Administrator</span>
       </td>
+
       <td>
         <button 
           *ngIf="!user.isBlocked && user.role !== 2" 
           (click)="onBlockUser(user.id)">
           Block
         </button>
+
+        <button 
+          *ngIf="user.role !== 2"
+          style="margin-left: 10px; color: red;"
+          (click)="onDeleteUser(user.id)">
+          Delete
+        </button>
+
         <span *ngIf="user.isBlocked">
           Blocked
         </span>

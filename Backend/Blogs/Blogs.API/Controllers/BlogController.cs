@@ -137,5 +137,33 @@ namespace Blogs.API.Controllers
         {
             return Ok(_commentService.GetByBlogId(blogId));
         }
+
+        [HttpDelete("user/{userId}")]
+        public IActionResult DeleteByUser(Guid userId)
+        {
+            try
+            {
+                _blogService.SoftDeleteByUser(userId);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+        [HttpPost("user/{userId}/restore")]
+        public IActionResult RestoreByUser(Guid userId)
+        {
+            try
+            {
+                _blogService.RestoreByUser(userId);
+                return Ok(new { message = "Blogovi vraćeni" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
 }

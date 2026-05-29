@@ -63,7 +63,8 @@ namespace Blogs.Infrastructure.Database
                 entity.Property(c => c.LastChange)
                     .IsRequired();
             });
-
+            modelBuilder.Entity<Blog>().HasQueryFilter(b => !b.IsDeleted);
+            modelBuilder.Entity<Comment>().HasQueryFilter(c => !c.IsDeleted);
 
         }
     }

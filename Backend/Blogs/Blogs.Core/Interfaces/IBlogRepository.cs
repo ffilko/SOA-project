@@ -9,5 +9,8 @@ namespace Blogs.Core.Interfaces
         Blog Create(Blog blog);
         Blog GetById(Guid id);
         List<Blog> GetAll();
+        void Update(Blog blog);
+        List<Blog> GetAllIncludingDeleted();
+        
     }
 }

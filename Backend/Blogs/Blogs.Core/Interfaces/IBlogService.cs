@@ -8,5 +8,7 @@ namespace Blogs.Core.Interfaces
         Blog GetById(Guid id);
         List<Blog> GetAll();
         Task<List<Blog>> GetFeed(Guid userId);
+        void SoftDeleteByUser(Guid userId);
+        void RestoreByUser(Guid userId);
     }
 }

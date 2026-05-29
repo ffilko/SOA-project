@@ -19,7 +19,7 @@ export class FeedComponentComponent implements OnInit {
   expandedComments = new Set<string>();
   newCommentMap: { [blogId: string]: string } = {};
 
-  private blogBaseUrl = 'http://localhost:8081/api/blogs';
+  private blogBaseUrl = 'http://localhost:9000/api/blogs';
   private stakeholdersUrl = 'http://localhost:8080';
 
   constructor(
@@ -68,16 +68,24 @@ export class FeedComponentComponent implements OnInit {
     });
   }
 
-  fetchUsername(userId: string) {
+  nonExistentUsers = new Set<string>();
+
+fetchUsername(userId: string) {
   if (this.usernameCache[userId]) return;
   this.authService.getUserById(userId).subscribe({
     next: user => {
       this.usernameCache = { ...this.usernameCache, [userId]: user.username };
     },
     error: () => {
-      this.usernameCache = { ...this.usernameCache, [userId]: userId };
+      // Korisnik ne postoji — označi ga
+      this.nonExistentUsers.add(userId);
+      this.usernameCache = { ...this.usernameCache, [userId]: '[obrisan korisnik]' };
     }
   });
+}
+
+userExists(userId: string): boolean {
+  return !this.nonExistentUsers.has(userId);
 }
 
   getUsername(userId: string): string {

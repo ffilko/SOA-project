@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Blogs.Core.Interfaces;
+﻿using Blogs.Core.Interfaces;
 using Blogs.Core.Model;
 using Blogs.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Blogs.Infrastructure.Repositories
 {
@@ -31,6 +32,17 @@ namespace Blogs.Infrastructure.Repositories
         public List<Blog> GetAll()
         {
             return _context.Blogs.ToList();
+        }
+
+        public void Update(Blog blog)
+        {
+            _context.Blogs.Update(blog);
+            _context.SaveChanges();
+        }
+
+        public List<Blog> GetAllIncludingDeleted()
+        {
+            return _context.Blogs.IgnoreQueryFilters().ToList();
         }
     }
 }

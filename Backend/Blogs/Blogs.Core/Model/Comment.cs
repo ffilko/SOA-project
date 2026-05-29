@@ -15,6 +15,7 @@ namespace Blogs.Core.Model
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastChange { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
         public Comment()
         {

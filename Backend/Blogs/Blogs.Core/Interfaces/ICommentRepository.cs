@@ -14,5 +14,6 @@ namespace Blogs.Core.Interfaces
         Comment GetById(Guid id);
         List<Comment> GetByBlogId(Guid blogId);
         List<Comment> GetAll();
+        List<Comment> GetByBlogIdIncludingDeleted(Guid blogId);
     }
 }

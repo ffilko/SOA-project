@@ -7,11 +7,13 @@ namespace Blogs.Core.Services
     public class BlogService : IBlogService
     {
         private readonly IBlogRepository _blogRepository;
+        private readonly ICommentRepository _commentRepository;
         private readonly HttpClient _httpClient;
 
-        public BlogService(IBlogRepository blogRepository, HttpClient httpClient)
+        public BlogService(IBlogRepository blogRepository, ICommentRepository commentRepository, HttpClient httpClient)
         {
             _blogRepository = blogRepository;
+            _commentRepository = commentRepository;
             _httpClient = httpClient;
         }
 
@@ -38,5 +40,46 @@ namespace Blogs.Core.Services
                 .Where(b => followingIds.Contains(b.UserId.ToString()))
                 .ToList();
         }
+
+        public void SoftDeleteByUser(Guid userId)
+        {
+            var blogs = _blogRepository.GetAll()
+                .Where(b => b.UserId == userId)
+                .ToList();
+
+            foreach (var blog in blogs)
+            {
+                blog.IsDeleted = true;
+                _blogRepository.Update(blog);
+
+                var comments = _commentRepository.GetByBlogId(blog.Id);
+                foreach (var comment in comments)
+                {
+                    comment.IsDeleted = true;
+                    _commentRepository.Update(comment);
+                }
+            }
+        }
+
+        public void RestoreByUser(Guid userId)
+        {
+            var blogs = _blogRepository.GetAllIncludingDeleted()
+                .Where(b => b.UserId == userId && b.IsDeleted)
+                .ToList();
+
+            foreach (var blog in blogs)
+            {
+                blog.IsDeleted = false;
+                _blogRepository.Update(blog);
+
+                var comments = _commentRepository.GetByBlogIdIncludingDeleted(blog.Id);
+                foreach (var comment in comments)
+                {
+                    comment.IsDeleted = false;
+                    _commentRepository.Update(comment);
+                }
+            }
+        }
     }
+    
 }

@@ -33,4 +33,15 @@ public interface UserRepository extends Neo4jRepository<UserNode, String> {
 		RETURN count(b) > 0
 		""")
 	boolean isFollowing(String followerId, String followingId);
+
+	@Query("MATCH (u:User {userId: $userId})-[r:FOLLOWS]->() DELETE r")
+	void removeAllFollowsByUser(String userId);
+
+	@Query("MATCH (u:User)-[r:FOLLOWS]->(target:User {userId: $userId}) DELETE r")
+	void removeAllFollowersOfUser(String userId);
+
+	@Query("MATCH (u:User {userId: $userId}) DETACH DELETE u")
+	void deleteWithAllRelationships(String userId);
+
+
 }

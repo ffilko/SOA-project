@@ -40,4 +40,17 @@ export class AdminComponent implements OnInit {
       });
     }
   }
+  onDeleteUser(userId: string) {
+    if (confirm('Are you sure you want to DELETE this user permanently?')) {
+      this.authService.deleteUser(userId).subscribe({
+        next: () => {
+          alert('User deleted (SAGA executed)');
+          this.loadUsers();
+        },
+        error: () => {
+          alert('Error');
+        }
+      });
+    }
+  }
 }

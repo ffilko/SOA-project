@@ -1,6 +1,9 @@
 package org.tourism.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.tourism.dto.UserRegisteredEventDTO;
 import org.tourism.service.FollowService;
 
 import java.util.List;
@@ -38,5 +41,22 @@ public class FollowController {
 	@GetMapping("/check/{followerId}/{followingId}")
 	public boolean isFollowing(@PathVariable String followerId, @PathVariable String followingId) {
 		return followService.isFollowing(followerId, followingId);
+	}
+
+	@DeleteMapping("/user/{userId}")
+    public ResponseEntity<Void> deleteAllByUser(@PathVariable String userId) {
+        followService.deleteAllByUser(userId);
+        return ResponseEntity.noContent().build();
+    }
+
+	@PostMapping("/user")
+	public ResponseEntity<?> handleUserRegistered(@RequestBody UserRegisteredEventDTO dto) {
+		try {
+			followService.createUserNode(dto.getUserId());
+			return ResponseEntity.status(HttpStatus.CREATED)
+					.body("Neo4j čvor kreiran za korisnika: " + dto.getUserId());
+		} catch (Exception e) {return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Greška pri kreiranju čvora: " + e.getMessage());
+		}
 	}
 }
