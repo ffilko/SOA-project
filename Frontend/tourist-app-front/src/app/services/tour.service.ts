@@ -27,4 +27,8 @@ export class TourService {
   addKeyPoint(tourId: string, keyPoint: KeyPoint) {
     return this.http.post<Tour>(`${this.baseUrl}/${tourId}/keypoints`, keyPoint);
   }
+
+  getAllTours(): Observable<Tour[]> {
+    return this.http.get<Tour[]>(this.baseUrl, { headers: this.headers() });
+  }
 }
