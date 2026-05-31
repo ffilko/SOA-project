@@ -6,11 +6,21 @@
   </div>
 
   <div *ngIf="authService.isLoggedIn$ | async">
+    
     <a routerLink="/feed">Feed</a>
     <a routerLink="/profile">Profil</a>
-    <a routerLink="/my-tours">My Tours</a>
-    <a routerLink="/position-simulator">Position Simulator</a>
-    <a routerLink="/tours">Tours</a>
+
+    <ng-container *ngIf="userRole === 'Tourist'">
+      <a routerLink="/explore-tours">Explore Tours</a>
+      <a routerLink="/my-tours">My Tours</a>
+      <a routerLink="/position-simulator">Position Simulator</a>
+      <a routerLink="/cart">Shopping Cart</a>
+    </ng-container>
+
+    <ng-container *ngIf="userRole === 'Guide'">
+      <a routerLink="/tours">Tours</a>
+    </ng-container>
+
     <button (click)="logout()">Logout</button>
   </div>
 

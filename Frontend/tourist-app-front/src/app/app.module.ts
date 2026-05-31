@@ -15,6 +15,8 @@ import { BlogComponent } from './blog/blog.component';
 import { ReviewFormComponent } from './pages/review-form/review-form.component';
 import { MyToursComponent } from './pages/my-tours/my-tours.component';
 import { ToursComponent } from './pages/tours/tours.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { ExploreToursComponent } from './pages/explore-tours/explore-tours.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ToursComponent } from './pages/tours/tours.component';
     BlogComponent,
     ReviewFormComponent,
     MyToursComponent,
-    ToursComponent
+    ToursComponent,
+    ShoppingCartComponent,
+    ExploreToursComponent
   ],
   imports: [
     BrowserModule,

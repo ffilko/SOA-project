@@ -10,6 +10,8 @@ import { MyToursComponent } from 'src/app/pages/my-tours/my-tours.component';
 import { ReviewFormComponent } from './pages/review-form/review-form.component';
 import { PositionSimulatorComponent } from './pages/position-simulator/position-simulator.component';
 import { ToursComponent } from 'src/app/pages/tours/tours.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { ExploreToursComponent } from './pages/explore-tours/explore-tours.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'review/:tourId', component: ReviewFormComponent },
   { path: 'position-simulator', component: PositionSimulatorComponent },
   { path: 'tours', component: ToursComponent },
+  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'explore-tours', component: ExploreToursComponent },
 ];
 
 @NgModule({

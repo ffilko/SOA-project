@@ -1,0 +1,26 @@
+<div class="tour-list-container" style="margin-top: 30px;">
+  <h2>Explore Tours</h2>
+
+  <div *ngIf="tours.length === 0" style="padding: 20px; background-color: #f8f9fa; border-radius: 5px;">
+    <p style="color: #6c757d; font-style: italic;">No tours.</p>
+  </div>
+
+  <div class="tour-card" *ngFor="let tour of tours">
+    <h3>{{ tour.name }}</h3>
+    <p><strong>Opis:</strong> {{ tour.description }}</p>
+    <p><strong>Težina:</strong> {{ tour.difficulty }}</p>
+
+    <div class="tags" *ngIf="tour.tags && tour.tags.length > 0">
+      <span class="tag" *ngFor="let tag of tour.tags" style="background: #e0e0e0; padding: 2px 6px; margin-right: 5px; border-radius: 3px; font-size: 12px;">
+        {{ tag }}
+      </span>
+    </div>
+
+    <div style="margin-top: 15px;">
+      <button (click)="addToCart(tour)">
+        Add to cart
+      </button>
+    </div>
+
+  </div>
+</div>

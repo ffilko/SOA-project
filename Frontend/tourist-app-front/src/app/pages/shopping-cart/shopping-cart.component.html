@@ -1,0 +1,32 @@
+<div style="padding: 20px;">
+  <h2>Shopping cart</h2>
+
+  <div *ngIf="!cart || cart.items.length === 0">
+    <p>No tours in your shopping cart.</p>
+  </div>
+
+  <div *ngIf="cart && cart.items.length > 0">
+    <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%; max-width: 600px;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th style="text-align: left;">Tour</th>
+          <th style="text-align: left;">Price</th>
+          <th style="text-align: center;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart.items">
+          <td>{{ item.tourName }}</td>
+          <td>{{ item.price }} din</td>
+          <td style="text-align: center;">
+            <button (click)="removeItem(item.id)">Ukloni</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 20px;">Total price: {{ cart.totalPrice }} din</h3>
+
+    <button (click)="checkout()" style="padding: 10px 20px; font-weight: bold;">Checkout</button>
+  </div>
+</div>

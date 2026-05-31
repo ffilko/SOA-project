@@ -12,6 +12,7 @@ services:
       - blogs-service
       - followers-service
       - tours-service
+      - purchase-service
     networks:
       - app-network
 
@@ -148,6 +149,38 @@ services:
     networks:
       - app-network
 
+  purchase-service:
+    build:
+      context: ./Backend/Purchase
+      dockerfile: Dockerfile
+    container_name: purchase
+    restart: always
+    depends_on:
+      - purchase-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://purchase-db:5432/purchase_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+    expose:
+      - "8084"
+    networks:
+      - app-network
+
+  purchase-db:
+    image: postgres:16
+    container_name: purchase-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: purchase_db
+    volumes:
+      - purchase-database-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
 volumes:
   database-data:
     name: server-database
@@ -159,6 +192,8 @@ volumes:
     name: neo4j-data
   tours-neo4j-data:
     name: tours-neo4j-data
+  purchase-database-data:
+    name: purchase-database
 
 networks:
   app-network:
