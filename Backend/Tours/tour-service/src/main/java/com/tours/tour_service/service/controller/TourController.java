@@ -2,6 +2,7 @@ package com.tours.tour_service.service.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,5 +46,10 @@ public class TourController {
     @GetMapping
     public List<Tour> getAllTours() {
         return tourService.getAllTours();
+    }
+    
+    @PutMapping("/{tourId}/publish")
+    public Tour publishTour(@PathVariable String tourId) {
+        return tourService.publishTour(tourId);
     }
 }
