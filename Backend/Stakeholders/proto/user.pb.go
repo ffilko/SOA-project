@@ -496,13 +496,13 @@ const file_user_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"G\n" +
 	"\x11BlockUserResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage2\xa1\x02\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2\xa6\x02\n" +
 	"\vUserService\x120\n" +
 	"\x05Login\x12\x12.user.LoginRequest\x1a\x13.user.LoginResponse\x129\n" +
 	"\bRegister\x12\x15.user.RegisterRequest\x1a\x16.user.RegisterResponse\x12J\n" +
 	"\vGetAllUsers\x12\x12.user.EmptyRequest\x1a\x13.user.UsersResponse\"\x12\x82\xd3\xe4\x93\x02\f\x12\n" +
-	"/api/users\x12Y\n" +
-	"\tBlockUser\x12\x16.user.BlockUserRequest\x1a\x17.user.BlockUserResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\x1a\x10/api/users/blockB\x1aZ\x18stakeholders/proto;protob\x06proto3"
+	"/api/users\x12^\n" +
+	"\tBlockUser\x12\x16.user.BlockUserRequest\x1a\x17.user.BlockUserResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\x1a\x15/api/users/{id}/blockB\x1aZ\x18stakeholders/proto;protob\x06proto3"
 
 var (
 	file_user_proto_rawDescOnce sync.Once
