@@ -2,7 +2,7 @@
   <h2>My Completed Tours</h2>
   <p class="subtitle">Select a tour to leave a review and share your experience.</p>
 
-  <div *ngIf="completedTours.length === 0" style="font-style: italic; color: #777;">
+  <div *ngIf="completedTours.length === 0" class="empty-state">
     No tours found.
   </div>
 
@@ -10,11 +10,36 @@
     
     <div class="tour-info">
       <h3>{{ tour.name }}</h3>
-      <p>{{ tour.description }}</p> </div>
+      <p>{{ tour.description }}</p> 
+    </div>
 
-    <button (click)="goToReview(tour.id)" class="btn-review">
-      Leave a review
-    </button>
+    <div class="button-group">
+      <button (click)="viewDetails(tour.id)" class="btn-details">
+        {{ selectedTourDetails?.id === tour.id ? 'Hide Details' : 'View Details' }}
+      </button>
+
+      <button (click)="goToReview(tour.id)" class="btn-review">
+        Leave a review
+      </button>
+    </div>
     
+    <div *ngIf="selectedTourDetails?.id === tour.id" class="tour-details-panel">
+      <p><strong>Total lenght:</strong> {{ selectedTourDetails.distanceInKm }} km</p>
+      
+      <h4>Key points:</h4>
+      <ul class="keypoints-list">
+        <li *ngFor="let kp of selectedTourDetails.keyPoints">
+          <strong>{{ kp.name }}</strong> - {{ kp.description }}
+        </li>
+      </ul>
+
+      <div *ngIf="selectedTourDetails.reviews?.length > 0">
+        <h4 class="reviews-title">Reviews:</h4>
+        <ul class="reviews-list">
+          <li *ngFor="let rev of selectedTourDetails.reviews" class="review-item"><strong>{{ rev.rating }}/5</strong>: "{{ rev.comment }}"
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

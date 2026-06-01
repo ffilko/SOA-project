@@ -1,7 +1,9 @@
 package com.tours.tour_service.service;
 
-import java.util.UUID;
+import java.util.*;
 
+import com.tours.tour_service.DTO.PublishedTourDTO;
+import com.tours.tour_service.model.Review;
 import org.springframework.stereotype.Service;
 
 import com.tours.tour_service.DTO.TourDTO;
@@ -13,18 +15,17 @@ import com.tours.tour_service.model.TourDuration;
 import com.tours.tour_service.repo.TourRepository;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class TourService {
 	
 	private final TourRepository tourRepository;
+	private final ReviewService reviewService;
 
-	public TourService(TourRepository tourRepository) {
+	public TourService(TourRepository tourRepository, ReviewService reviewService) {
 	    this.tourRepository = tourRepository;
+		this.reviewService = reviewService;
 	}
 	
 	public List<Tour> getToursByAuthorId(String authorId) {
@@ -142,5 +143,49 @@ public class TourService {
 	    tour.setPublishedAt(LocalDateTime.now());
 
 	    return tourRepository.save(tour);
+	}
+
+	public List<PublishedTourDTO> getPublishedTours() {
+		List<Tour> publishedTours = tourRepository.findByStatus(TourStatus.PUBLISHED);
+
+		return publishedTours.stream().map(tour -> {
+			PublishedTourDTO dto = new PublishedTourDTO();
+			dto.setId(tour.getId());
+			dto.setName(tour.getName());
+			dto.setDescription(tour.getDescription());
+			dto.setPrice(tour.getPrice());
+			dto.setDistanceInKm(tour.getDistanceInKm());
+			dto.setDurations(tour.getDurations());
+
+			if (tour.getKeyPoints() != null && !tour.getKeyPoints().isEmpty()) {
+				dto.setKeyPoints(Collections.singletonList(tour.getKeyPoints().get(0)));
+			} else {
+				dto.setKeyPoints(Collections.emptyList());
+			}
+
+			List<Review> reviews = reviewService.getReviewsByTour(tour.getId());
+			dto.setReviews(reviews);
+
+			return dto;
+		}).collect(Collectors.toList());
+	}
+
+	public PublishedTourDTO getPurchasedTourDetails(String tourId) {
+		Tour tour = tourRepository.findById(tourId)
+				.orElseThrow(() -> new RuntimeException("Tour not found."));
+
+		PublishedTourDTO dto = new PublishedTourDTO();
+		dto.setId(tour.getId());
+		dto.setName(tour.getName());
+		dto.setDescription(tour.getDescription());
+		dto.setPrice(tour.getPrice());
+		dto.setDistanceInKm(tour.getDistanceInKm());
+		dto.setDurations(tour.getDurations());
+		dto.setKeyPoints(tour.getKeyPoints());
+
+		List<Review> reviews = reviewService.getReviewsByTour(tour.getId());
+		dto.setReviews(reviews);
+
+		return dto;
 	}
 }

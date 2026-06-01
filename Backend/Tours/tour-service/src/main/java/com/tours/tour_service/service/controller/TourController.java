@@ -1,5 +1,6 @@
 package com.tours.tour_service.service.controller;
 
+import com.tours.tour_service.DTO.PublishedTourDTO;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -51,5 +52,15 @@ public class TourController {
     @PutMapping("/{tourId}/publish")
     public Tour publishTour(@PathVariable String tourId) {
         return tourService.publishTour(tourId);
+    }
+
+    @GetMapping("/published")
+    public List<PublishedTourDTO> getPublishedTours() {
+        return tourService.getPublishedTours();
+    }
+
+    @GetMapping("/purchased/{tourId}")
+    public PublishedTourDTO getPurchasedTourDetails(@PathVariable String tourId) {
+        return tourService.getPurchasedTourDetails(tourId);
     }
 }

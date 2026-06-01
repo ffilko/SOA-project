@@ -31,4 +31,12 @@ export class TourService {
   getAllTours(): Observable<Tour[]> {
     return this.http.get<Tour[]>(this.baseUrl, { headers: this.headers() });
   }
+
+  getPublishedTours(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/published`);
+  }
+  
+  getPurchasedTourDetails(tourId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/purchased/${tourId}`);
+  }
 }
