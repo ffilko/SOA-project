@@ -42,8 +42,11 @@ public class Tour {
 		super();
 	}
 	
-	public Tour(String id, String authorId, String name, String description, TourDifficulty difficulty ,List<String> tags,
-			double price, TourStatus status, List<TourDuration> durations, double distanceInKm, LocalDateTime publishedAt, LocalDateTime archivedAt) {
+	
+
+	public Tour(String id, String authorId, String name, String description, TourDifficulty difficulty,
+			List<String> tags, double price, TourStatus status, double distanceInKm, LocalDateTime publishedAt,
+			LocalDateTime archivedAt, List<KeyPoint> keyPoints, List<TourDuration> durations) {
 		super();
 		this.id = id;
 		this.authorId = authorId;
@@ -53,11 +56,15 @@ public class Tour {
 		this.tags = tags;
 		this.price = price;
 		this.status = status;
-		this.durations=durations;
-		this.distanceInKm=distanceInKm;
-		this.publishedAt=publishedAt;
-		this.archivedAt=archivedAt;
+		this.distanceInKm = distanceInKm;
+		this.publishedAt = publishedAt;
+		this.archivedAt = archivedAt;
+		this.keyPoints = keyPoints;
+		this.durations = durations;
 	}
+
+
+
 	public String getId() {
 		return id;
 	}

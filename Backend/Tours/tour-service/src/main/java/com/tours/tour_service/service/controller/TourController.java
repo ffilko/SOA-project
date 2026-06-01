@@ -13,6 +13,7 @@ import java.util.List;
 import com.tours.tour_service.DTO.TourDTO;
 import com.tours.tour_service.model.KeyPoint;
 import com.tours.tour_service.model.Tour;
+import com.tours.tour_service.model.TourDuration;
 import com.tours.tour_service.service.TourService;
 
 
@@ -51,5 +52,20 @@ public class TourController {
     @PutMapping("/{tourId}/publish")
     public Tour publishTour(@PathVariable String tourId) {
         return tourService.publishTour(tourId);
+    }
+    
+    @PutMapping("/{tourId}/archive")
+    public Tour archiveTour(@PathVariable String tourId) {
+        return tourService.archiveTour(tourId);
+    }
+    
+    @GetMapping("/{tourId}/keypoints")
+    public List<KeyPoint> getKeyPoints(@PathVariable String tourId) {
+        return tourService.getKeyPoints(tourId);
+    }
+    
+    @PostMapping("/{tourId}/durations")
+    public Tour addDurationToTour(@PathVariable String tourId, @RequestBody TourDuration duration) {
+        return tourService.addDuration(tourId, duration);
     }
 }

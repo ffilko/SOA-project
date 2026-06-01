@@ -10,6 +10,7 @@ import com.tours.tour_service.enums.TransportType;
 import com.tours.tour_service.model.KeyPoint;
 import com.tours.tour_service.model.Tour;
 import com.tours.tour_service.model.TourDuration;
+import com.tours.tour_service.repo.KeyPointRepository;
 import com.tours.tour_service.repo.TourRepository;
 
 import java.time.LocalDateTime;
@@ -22,9 +23,16 @@ import java.util.Map;
 public class TourService {
 	
 	private final TourRepository tourRepository;
+	private final KeyPointRepository keyPointRepository;
 
-	public TourService(TourRepository tourRepository) {
+	public TourService(TourRepository tourRepository, KeyPointRepository keyPointRepository) {
 	    this.tourRepository = tourRepository;
+	    this.keyPointRepository=keyPointRepository;
+	}
+	
+
+	public List<Tour> getAllTours() {
+		return tourRepository.findAll();
 	}
 	
 	public List<Tour> getToursByAuthorId(String authorId) {
@@ -33,23 +41,47 @@ public class TourService {
 	
 	public Tour createTour(TourDTO dto) {
 
+	    if (dto.getKeyPoints() == null || dto.getKeyPoints().size() < 1) {
+	        throw new RuntimeException("Tour must have at least one key point");
+	    }
+
 	    Tour tour = new Tour();
-	    
+
 	    tour.setAuthorId(dto.getAuthorId());
 	    tour.setName(dto.getName());
 	    tour.setDescription(dto.getDescription());
 	    tour.setDifficulty(dto.getDifficulty());
 	    tour.setTags(dto.getTags());
 
-	    tour.setPrice(0);
 	    tour.setStatus(TourStatus.DRAFT);
-	    tour.setDistanceInKm(0);
-	    List<TourDuration> durations = new ArrayList<>();
-	    durations.add(new TourDuration(TransportType.BICYCLE, 200));
-
-	    tour.setDurations(durations);
-	    tour.setArchivedAt(null);
+	    tour.setPrice(0);
 	    tour.setPublishedAt(null);
+	    tour.setArchivedAt(null);
+
+	    List<KeyPoint> keyPoints = new ArrayList<>();
+
+	    for (KeyPoint kp : dto.getKeyPoints()) {
+	        KeyPoint newKp = new KeyPoint();
+	        newKp.setId(UUID.randomUUID().toString());
+	        newKp.setName(kp.getName());
+	        newKp.setDescription(kp.getDescription());
+	        newKp.setLatitude(kp.getLatitude());
+	        newKp.setLongitude(kp.getLongitude());
+	        newKp.setImageUrl(kp.getImageUrl());
+
+	        keyPoints.add(newKp);
+	    }
+
+	    tour.setKeyPoints(keyPoints);
+
+	    if (dto.getDurations() != null) {
+	        tour.setDurations(dto.getDurations());
+	    } else {
+	        tour.setDurations(new ArrayList<>());
+	    }
+
+	    double distance = calculateTourDistance(keyPoints);
+	    tour.setDistanceInKm(distance);
 
 	    return tourRepository.save(tour);
 	}
@@ -57,20 +89,31 @@ public class TourService {
 	public Tour addKeyPointToTour(String tourId, KeyPoint keyPoint) {
 	    Tour tour = tourRepository.findById(tourId)
 	            .orElseThrow(() -> new RuntimeException("Tour not found"));
-	    
-	    tour.getKeyPoints().add(keyPoint);
-	    
+
+	    keyPoint.setId(UUID.randomUUID().toString());
+
+	    KeyPoint savedKeyPoint = keyPointRepository.save(keyPoint);
+
+	    if (tour.getKeyPoints() == null) {
+	        tour.setKeyPoints(new ArrayList<>());
+	    }
+
+	    tour.getKeyPoints().add(savedKeyPoint);
+
 	    if (tour.getKeyPoints().size() >= 2) {
-	        double distance = calculateTourDistance(tour.getKeyPoints());
-	        tour.setDistanceInKm(distance);
+	        tour.setDistanceInKm(calculateTourDistance(tour.getKeyPoints()));
 	    }
 
 	    return tourRepository.save(tour);
 	}
+	
+	public List<KeyPoint> getKeyPoints(String tourId) {
+	    Tour tour = tourRepository.findById(tourId)
+	            .orElseThrow(() -> new RuntimeException("Tour not found"));
 
-	public List<Tour> getAllTours() {
-		return tourRepository.findAll();
+	    return tour.getKeyPoints();
 	}
+	
 	
 	private double calculateTourDistance(List<KeyPoint> keyPoints) {
 	    double totalDistance = 0;
@@ -106,28 +149,16 @@ public class TourService {
 	    return EARTH_RADIUS * c;
 	}
 	
+	
 	public Tour publishTour(String tourId) {
 	    Tour tour = tourRepository.findById(tourId)
 	            .orElseThrow(() -> new RuntimeException("Tour not found"));
 
-	    if (tour.getStatus() != TourStatus.DRAFT && tour.getStatus() != TourStatus.ARCHIVED) {
-	        throw new RuntimeException("Only draft or archived tours can be published");
-	    }
-
-	    if (tour.getName() == null || tour.getName().isBlank()) {
-	        throw new RuntimeException("Tour must have name");
-	    }
-
-	    if (tour.getDescription() == null || tour.getDescription().isBlank()) {
-	        throw new RuntimeException("Tour must have description");
-	    }
-
-	    if (tour.getDifficulty() == null) {
-	        throw new RuntimeException("Tour must have difficulty");
-	    }
-
-	    if (tour.getTags() == null || tour.getTags().isEmpty()) {
-	        throw new RuntimeException("Tour must have tags");
+	    if (tour.getName() == null || tour.getName().isBlank()
+	            || tour.getDescription() == null || tour.getDescription().isBlank()
+	            || tour.getDifficulty() == null
+	            || tour.getTags() == null || tour.getTags().isEmpty()) {
+	        throw new RuntimeException("Tour must contain basic information");
 	    }
 
 	    if (tour.getKeyPoints() == null || tour.getKeyPoints().size() < 2) {
@@ -142,5 +173,42 @@ public class TourService {
 	    tour.setPublishedAt(LocalDateTime.now());
 
 	    return tourRepository.save(tour);
+	}
+	
+	public Tour archiveTour(String tourId) {
+	    Tour tour = tourRepository.findById(tourId)
+	            .orElseThrow(() -> new RuntimeException("Tour not found"));
+
+	    
+	    tour.setStatus(TourStatus.ARCHIVED);
+	    tour.setArchivedAt(LocalDateTime.now());
+
+	    return tourRepository.save(tour);
+	}
+	
+	public Tour addDuration(String tourId, TourDuration duration) {
+	    Tour tour = tourRepository.findById(tourId)
+	            .orElseThrow(() -> new RuntimeException("Tour not found"));
+
+	    if (tour.getDurations() == null) {
+	        tour.setDurations(new ArrayList<>());
+	    }
+
+	    duration.setId(UUID.randomUUID().toString());
+
+	    tour.getDurations().add(duration);
+
+	    return tourRepository.save(tour);
+	}
+	
+	public Tour getTourForPurchase(String tourId) {
+	    Tour tour = tourRepository.findById(tourId)
+	            .orElseThrow(() -> new RuntimeException("Tour not found"));
+
+	    if (tour.getStatus() != TourStatus.PUBLISHED) {
+	        throw new RuntimeException("Only published tours can be bought");
+	    }
+
+	    return tour;
 	}
 }
