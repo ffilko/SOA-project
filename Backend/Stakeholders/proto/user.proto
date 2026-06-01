@@ -17,7 +17,7 @@ service UserService {
 
   rpc BlockUser(BlockUserRequest) returns (BlockUserResponse) {
     option (google.api.http) = {
-      put: "/api/users/block"
+      put: "/api/users/{id}/block"
       body: "*"
     };
   }

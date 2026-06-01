@@ -28,7 +28,7 @@ export class ExploreToursComponent implements OnInit {
   }
 
   loadAvailableTours(): void {
-    this.tourService.getAllTours().subscribe({
+    this.tourService.getPublishedTours().subscribe({
       next: (allTours: Tour[]) => {
         this.tours = [];
         
@@ -47,8 +47,8 @@ export class ExploreToursComponent implements OnInit {
     });
   }
 
-  addToCart(tour: Tour): void {
-    const item: OrderItem = { tourId: tour.id, tourName: tour.name, price: 1500 };
+  addToCart(tour: any): void {
+    const item: OrderItem = { tourId: tour.id, tourName: tour.name, price: tour.price }; 
     this.purchaseService.addItemToCart(this.currentUserId, item).subscribe({
       next: () => alert(`Tour "${tour.name}" added!`),
       error: () => alert('You already have this tour.')

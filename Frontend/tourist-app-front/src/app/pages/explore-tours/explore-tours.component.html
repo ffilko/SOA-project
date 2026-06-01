@@ -1,22 +1,47 @@
-<div class="tour-list-container" style="margin-top: 30px;">
+<div class="explore-tours-container">
   <h2>Explore Tours</h2>
+  <p class="subtitle">Browse all available tours and add them to your cart.</p>
 
-  <div *ngIf="tours.length === 0" style="padding: 20px; background-color: #f8f9fa; border-radius: 5px;">
-    <p style="color: #6c757d; font-style: italic;">No tours.</p>
+  <div *ngIf="tours.length === 0" class="empty-state">
+    There are no tours available for purchase.
   </div>
 
   <div class="tour-card" *ngFor="let tour of tours">
-    <h3>{{ tour.name }}</h3>
-    <p><strong>Opis:</strong> {{ tour.description }}</p>
-    <p><strong>Težina:</strong> {{ tour.difficulty }}</p>
+    
+    <div class="tour-info">
+      <h3>{{ tour.name }}</h3>
+      <p><strong>Description:</strong> {{ tour.description }}</p>
+      <p><strong>Distance:</strong> {{ tour.distanceInKm }} km</p>
 
-    <div class="tags" *ngIf="tour.tags && tour.tags.length > 0">
-      <span class="tag" *ngFor="let tag of tour.tags" style="background: #e0e0e0; padding: 2px 6px; margin-right: 5px; border-radius: 3px; font-size: 12px;">
-        {{ tag }}
-      </span>
+      <p *ngIf="tour.durations && tour.durations.length > 0">
+        <strong>Duration:</strong> 
+        <span *ngFor="let d of tour.durations; let last = last">
+          {{ d.duration }} min ({{ d.transportType }})<span *ngIf="!last">, </span>
+        </span>
+      </p>
+
+      <div class="starting-point" *ngIf="tour.keyPoints && tour.keyPoints.length > 0">
+        <p><strong>Starting point:</strong> {{ tour.keyPoints[0].name }} - {{ tour.keyPoints[0].description }}</p>
+        
+        <div *ngIf="tour.keyPoints[0].imageUrl" class="image-wrapper">
+          <img [src]="tour.keyPoints[0].imageUrl" alt="Slika početne tačke" class="tour-image" />
+        </div>
+      </div>
+
+      <div class="reviews-section">
+        <p><strong>Reviews:</strong></p>
+        <ul *ngIf="tour.reviews && tour.reviews.length > 0; else noReviews">
+          <li *ngFor="let rev of tour.reviews">{{ rev.rating }}/5: "{{ rev.comment }}"
+          </li>
+        </ul>
+        <ng-template #noReviews>
+          <p class="italic-text">No reviews.</p>
+        </ng-template>
+      </div>
+
     </div>
 
-    <div style="margin-top: 15px;">
+    <div class="button-group">
       <button (click)="addToCart(tour)">
         Add to cart
       </button>

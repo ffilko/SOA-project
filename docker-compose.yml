@@ -102,6 +102,8 @@ services:
       SPRING_NEO4J_URI: bolt://tours-neo4j:7687
       SPRING_NEO4J_AUTHENTICATION_USERNAME: neo4j
       SPRING_NEO4J_AUTHENTICATION_PASSWORD: notverysecret
+    ports:
+      - "8083:8083"
     expose:
       - "8083"
     networks:
