@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net"
@@ -8,6 +9,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/rs/cors"
 	grpc "google.golang.org/grpc"
 	"gorm.io/driver/postgres"
@@ -49,6 +51,23 @@ func startServer(userHandler *handler.UserHandler, profileHandler *handler.Profi
 	router := mux.NewRouter()
 	handler.RegisterUserRoutes(router, userHandler)
 	handler.RegisterProfileRouter(router, profileHandler)
+
+	conn, err := grpc.DialContext(
+		context.Background(),
+		"localhost:50051",
+		grpc.WithInsecure(),
+		grpc.WithBlock(),
+	)
+	if err != nil {
+		log.Fatalln("Failed to dial gRPC server:", err)
+	}
+
+	gwmux := runtime.NewServeMux()
+	err = proto.RegisterUserServiceHandler(context.Background(), gwmux, conn)
+	if err != nil {
+		log.Fatalln("Failed to register gateway:", err)
+	}
+	router.PathPrefix("/api/users").Handler(gwmux)
 
 	println("Server starting...")
 
