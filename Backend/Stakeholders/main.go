@@ -108,9 +108,17 @@ func main() {
 		return
 	}
 
+	tp, err := initTracer()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func() {
+		_ = tp.Shutdown(context.Background())
+	}()
+
 	userRepo := &repo.UserRepository{DatabaseConnection: db}
 	profileRepo := &repo.ProfileRepository{DatabaseConnection: db}
-	userService := &service.UserService{UserRepo: userRepo, ProfileRepo: profileRepo}
+	userService := &service.UserService{UserRepo: userRepo, ProfileRepo: profileRepo, Tracer: tp.Tracer("stakeholders-service")}
 	profileService := &service.ProfileService{ProfileRepo: profileRepo}
 	userHandler := &handler.UserHandler{UserService: userService}
 	profileHandler := &handler.ProfileHandler{ProfileService: profileService}

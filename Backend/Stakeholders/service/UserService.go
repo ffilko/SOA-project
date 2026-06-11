@@ -1,9 +1,13 @@
 package service
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/google/uuid"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
+	"go.opentelemetry.io/otel/trace"
 	"stakeholders.xws.com/model"
 	"stakeholders.xws.com/repo"
 	"stakeholders.xws.com/saga"
@@ -20,6 +24,7 @@ type SagaSavedUser struct {
 type UserService struct {
 	UserRepo    *repo.UserRepository
 	ProfileRepo *repo.ProfileRepository
+	Tracer      trace.Tracer
 }
 
 func (service *UserService) FindUser(id uuid.UUID) (*model.User, error) {
@@ -31,36 +36,69 @@ func (service *UserService) FindUser(id uuid.UUID) (*model.User, error) {
 }
 
 func (service *UserService) Login(username string, password string) (*model.User, error) {
+	_, span := service.Tracer.Start(
+		context.Background(),
+		"UserService.Login",
+	)
+	defer func() { span.End() }()
+
+	span.SetAttributes(
+		attribute.String("username", username),
+	)
+
 	user, err := service.UserRepo.FindByUsername(username)
 	if err != nil {
+		span.RecordError(err)
+		span.SetStatus(codes.Error, "user not found")
 		return nil, fmt.Errorf("Invalid credentials")
 	}
 
 	if user.IsBlocked {
-		return nil, fmt.Errorf("Your account has been blocked.")
+		err := fmt.Errorf("blocked user")
+		span.RecordError(err)
+		span.SetStatus(codes.Error, err.Error())
+		return nil, err
 	}
 
 	if user.Password != password {
-		return nil, fmt.Errorf("Invalid password")
+		err := fmt.Errorf("wrong password")
+		span.RecordError(err)
+		span.SetStatus(codes.Error, err.Error())
+		return nil, err
 	}
 
+	span.SetStatus(codes.Ok, "login success")
 	return &user, nil
 }
 
 func (service *UserService) Create(user *model.User) error {
+	_, span := service.Tracer.Start(context.Background(), "UserService.Create")
+	defer func() { span.End() }()
+
 	if user.Role == model.Administrator {
-		return fmt.Errorf("Registration for administrator role is not allowed")
+		err := fmt.Errorf("admin not allowed")
+		span.RecordError(err)
+		return err
 	}
 
 	err := service.UserRepo.CreateUser(user)
 	if err != nil {
+		span.RecordError(err)
 		return err
 	}
+
+	span.AddEvent("User created")
 
 	profile := &model.Profile{
 		UserID: user.ID,
 	}
-	return service.ProfileRepo.CreateProfile(profile)
+	if err := service.ProfileRepo.CreateProfile(profile); err != nil {
+		span.RecordError(err)
+		return err
+	}
+
+	span.AddEvent("Profile created")
+	return nil
 }
 
 func (service *UserService) GetAllUsers() ([]model.User, error) {
