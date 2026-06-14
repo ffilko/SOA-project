@@ -24,6 +24,12 @@ services:
     restart: always
     depends_on:
       - database
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: stakeholders
+        fluentd-async: "true"
     expose:
       - "8080"
       - "50051"
@@ -199,6 +205,42 @@ services:
     networks:
       - app-network
 
+  loki:
+    image: grafana/loki:main-5206e3a
+    container_name: loki
+    ports:
+      - "3100:3100"
+    networks:
+      - app-network
+
+  fluent-bit:
+    image: grafana/fluent-bit-plugin-loki:main
+    container_name: fluent-bit
+    environment:
+      - LOKI_URL=http://loki:3100/loki/api/v1/push
+    volumes:
+      - ./monitoring/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    depends_on:
+      - loki
+    networks:
+      - app-network
+
+  grafana:
+    image: grafana/grafana:8.5.3
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+    depends_on:
+      - loki
+    networks:
+      - app-network
+
 volumes:
   database-data:
     name: server-database
@@ -212,6 +254,8 @@ volumes:
     name: tours-neo4j-data
   purchase-database-data:
     name: purchase-database
+  grafana-data:
+    name: grafana-data
 
 networks:
   app-network:
